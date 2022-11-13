@@ -1,0 +1,4604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REACT JS</title>
+</head>
+<body>
+    <p><b> BACKEND => React js + MongoDb </b></p> - library of javascript not a framework <br>
+    focus on ui and ux or component based means we can build samll things and make it big<br>
+    we can not used much more backend <br>
+    used in building single page application (SPA) or mobile web app <br>
+    
+    <hr>
+
+    JSX -  javascript xml , used in writhing React in html file <br>
+            or we can write html inside javascript <br>
+         eg. 
+         <!--
+         <script>
+            function car(){
+                return <h1> shubham </h1>;
+            };
+
+            function garage(){
+                return(
+                    <>
+                    <h1> my name is </h1>
+                    <car/>
+                    </>
+                );
+            }
+         </script>
+        -->
+
+    
+    Features - used in building native mobile apps <br><br>
+    
+    <hr>
+
+    creating react app and installing it - <br><br>
+
+    React components - 
+    header <br>
+    web app seo <br>
+    footer <br>
+
+    two types - stateless and stateful functional components <br><br>
+
+    structure - 
+    function HelloFunction() {
+        return(
+            <>
+            
+            </>
+        )
+    }
+    <br><br>
+
+    how to start app - first fo to terminal <br>
+    then go to file where we had install react <br>
+    then write npm run start <br><br>
+
+<hr>
+
+    creating first functional component - <br>
+    Hello Function - 
+    <!--
+    from hellofunction.js files =
+    import React from "react";
+    function Hellofunction() {
+        return(
+            <div>
+                first component using react
+            </div>
+        );
+    }
+    export default Hellofunction;
+
+    from files app.js = 
+    import './App.css';
+    import React from 'react';
+    import Hellofunction from './components/Hellofunction.js'; // used for defeing the components and importing it
+
+    function App() {
+    return (
+        <div className="App">
+        Hello world date
+
+        <Hellofunction />
+        </div>
+    );
+    }
+
+    -->
+    
+    we can aslo import css file in react app <br><br>
+
+    Class Component - <br><br>
+    <!--
+    from HelloClass.js file =
+    import React, {Component} from "react"; 
+    // componenet is used beacuse we have to also write component
+    class Helloclass extends Component{
+        render(){
+            return(
+                <>
+                    <h1>stateful class component</h1>
+                </>
+            )
+        }
+    }
+    export default Helloclass;
+
+
+    from app.js file
+    import Helloclass from './components/helloclass/HelloClass';
+    function App() {
+    return (
+        <div className="App">
+        Hello world date
+
+        <Hellofunction />
+        <Helloclass />
+        </div>
+    );
+    }
+    export default App;
+    -->
+
+
+    ES6 Functional component and importing and exporting it in App js file <br><br>
+    <!--
+    from helloES6.js file=
+
+    const HelloES6 = () => 
+    <h2>this is ES6 technique</h2>
+    export default HelloES6;
+
+    app.js file=
+    import HelloES6 from './components/HelloES6/HelloES6';
+    function App() {
+    return (
+        <div className="App">
+        Hello world date
+
+        <Hellofunction />
+        <Helloclass />
+        <Helloclass></Helloclass>
+        <Helloclass></Helloclass>
+        <Helloclass></Helloclass>
+
+        <HelloES6></HelloES6>
+        </div>
+    );
+    }
+    export default App;
+    -->
+
+    comparison between functional and class component - 
+    functional(stateless,dumb,responsible for ui);
+    class(stateful,smart,has its own container, own private data,best ui);
+
+    best is used to functional component that is ES6 and JSX one which is best.
+    <br><br>
+
+<hr>
+
+    React Hooks Intro - use us to help in class components <br><br>
+
+    Props/properties in functional and class components -
+    functional:
+    <!--
+    from display.jsx file=
+    import './display.css';
+    const Display = (props) => {
+    console.log(props);
+    return(
+        <center>
+            <div style={{width:"300px",height:"100px",border: "2px solid red",background: "skyblue"}}>
+                <h2 className="style1">Name: {props.firstname} {props.lastname}</h2>
+                <h4 className="style2">Age:{props.age}</h4>
+            </div>
+        </center>
+    );
+    }
+
+    from app.js file=
+    import Display from './components/display/display';
+    function App() {
+    return (
+        <div className="App">
+        <Display firstname="shubham" lastname="date" age="18"/>
+         <br/>
+        <Display firstname="avantika" lastname="date" age="18"/>
+        <br/>
+        <Display firstname="pandurang" lastname="date" age="18"/>
+        </div>
+    );
+    }
+    export default App;
+    --> 
+
+    class:
+    <!--
+    from display.js file=
+    import React, {Component} from "react"; 
+    // componenet is used beacuse we have to also write component
+    class Displayclass extends Component{
+        render(){
+            return(
+                <>
+                    <h3>Name: {this.props.name}</h3>
+                </>
+            )
+        }
+    }
+    export default Displayclass;
+
+
+    from app.js file=
+    import Displayclass from './components/display/display';
+    function App() {
+    return (
+        <div className="App">
+            <Displayclass name="shubham date" />
+        </div>
+    );
+    }
+    export default App;
+    -->
+    <br><br>
+
+
+    state vs props - props cant change its values while states can <br>
+    class state and in class functional we have to use react hook <br>
+    eg:
+
+    <!--
+    welcome.js
+    import React, { Component } from "react";
+    class Welcome extends Component{
+        constructor(){
+            super();
+            this.state = { name: "shubham date", age:"18"}; // calling the super class constructor
+            //data in the state can be modify
+        }
+
+        render(){
+            return(
+                <div>
+                    <h2>Name is {this.state.name} and Age is {this.state.age}</h2>
+                    <button onClick={() => this.changeData()}>Change Details</button>
+                </div>
+            );
+        }
+
+        changeData(){
+            this.setState({
+                name:"avantika Date",
+                age: 14
+            });
+        }
+    }
+    export default Welcome;
+
+    from app.js
+    import Welcome from './components/welcome';
+    function App() {
+    return (
+        <div className="App">
+            <welcome />
+        </div>
+    );
+    }
+    export default App;
+    -->
+    <br><br>
+
+    count - learning setstate <br>
+    <!--
+    import React, { Component } from 'react'
+    export class Count extends Component {
+
+    render() {
+        return (
+        <div>
+            Number is: {this.state.c} 
+            <br></br>
+            <button onClick={() => this.increaseNumber()}>Increase by 1</button>
+            </div>
+        )
+    }
+    constructor(props) {
+        super(props)
+    
+        this.state = {
+        c: 0
+        }
+    }
+    increaseNumber(){
+        // this.state.c = this.state.c + 1; this cant show output
+        // setstate values print first condition on its own and then our main program
+        // this.setState(
+        //   {
+        //     c: this.state.c + 1
+        //   },
+        //   () => {
+        //     console.log(this.state.c);
+        //   });
+
+        //getting previous vallues of our state
+        //method 2
+        this.setState((prevState, props) => ({
+        c: prevState.c + 1
+        }), 
+        () => {
+        console.log(this.state.c);
+        });
+    }
+    }
+    export default Count;
+
+    import Count from './components/count';
+    function App() {
+    return (
+        <div className="App">
+            <Count />
+        </div>
+    );
+    }
+    export default App;
+    -->
+
+
+    Handling form in class - making forms in react js <br>
+    <!--
+    import React, { Component } from 'react'
+    class FormComponent extends Component {
+    constructor(props) {
+        super(props)
+    
+        this.state = {
+        email:''
+        }
+    }
+    render() {
+        return (
+        <div>
+            User Registration Form
+            <form>
+                <div>
+                    <label>Name:</label>
+                    <input type="email"></input>
+                    <br></br>
+
+                    <label>Email:</label>
+                    <input type="email"></input>
+                    <br></br>
+
+                    <label>Password:</label>
+                    <input type="email"></input>
+                    <br></br>
+
+                    <label>Confirm Password:</label>
+                    <input type="email"></input>
+                    <br></br>
+                </div>
+            </form>
+        </div>
+        )
+    }
+    }
+    export default FormComponent;
+
+    import FormComponent from './components/form';
+    function App() {
+    return (
+        <div className="App">
+            <FormComponent />
+        </div>
+    );
+    }
+    export default FormComponent;
+    -->
+
+    Getting values of form in setstate -- <br>
+    <!--
+    form.js==
+    import React, { Component } from 'react'
+    class FormComponent extends Component {
+    constructor(props) {
+        super(props)
+    
+        this.state = {
+        Name:'',
+        email:'',
+        password:'',
+        confirmpassword:''
+        }
+    }
+
+    onChangeName = (event) =>{
+        //gives ther data entered into the input box
+        console.log(event.target.value);
+        this.setState({
+        Name :event.target.value
+        });
+    }
+    onChangeEmail = (event) =>{
+        //gives ther data entered into the input box
+        console.log(event.target.value);
+        this.setState({
+        email :event.target.value
+        });
+    }
+    onChangePassword = (event) =>{
+        //gives ther data entered into the input box
+        console.log(event.target.value);
+        this.setState({
+        password :event.target.value
+        });
+    }
+    onChangeConfirm = (event) =>{
+        //gives ther data entered into the input box
+        console.log(event.target.value);
+        this.setState({
+        confirmpassword :event.target.value
+        });
+    }
+    onSubmitEnquiry = (event) =>{
+        // prevent browserr from reloading
+        event.preventDefault();
+        console.log("form submitted");
+        console.log(`name: $(), email: $(), password: $(), confirmpassword: $()`);
+    }
+
+    render() {
+        return (
+        <div>
+            User Registration Form
+            <form onSubmit={this.onSubmitEnquiry}>
+                <div>
+                    <label>Name:</label>
+                    <input type="name" value={this.state.Name} onChange={this.onChangeName}></input>
+                    <br></br>
+
+                    <label>Email:</label>
+                    <input type="email" value={this.state.email} onChange={this.onChangeEmail}></input>
+                    <br></br>
+
+                    <label>Password:</label>
+                    <input type="password" value={this.state.password} onChange={this.onChangePassword}></input>
+                    <br></br>
+
+                    <label>Confirm Password:</label>
+                    <input type="password" value={this.state.confirm} onChange={this.onChangeConfirm}></input>
+                    <br></br>
+
+                    <button type='submit'>Send</button>
+                </div>
+            </form>
+        </div>
+        )
+    }
+    }
+    export default FormComponent;
+
+
+    app.js
+    import FormComponent from './components/form';
+    function App() {
+    return (
+        <div className="App">
+            <FormComponent />
+        </div>
+    );
+    }
+    export default FormComponent;
+    -->
+
+
+    react onLoad method - <br>
+    <!--
+    form.js=
+    //rest of all is same code in form js
+    componentDidMount(){
+    //  will be called after constructor and all the elements of the DOM has loadaed
+    // used for api call
+    console.log("componentDidMount called");
+    this.setState({
+      Name: 'shubham' // this will automaticaley input this data on form 
+    })
+  }
+    -->
+
+    setup local environment for web app developnmenty - download node.js and mongodb and postman tool used for testing and running in browser<br><br>
+<hr>
+
+    <!-- Node.js API -->
+
+    how to run server - npm run nodemon <br>
+    software used - mongodb, postman api, exprerss , node <br>
+    eg:
+    <!--
+    const express = require('express');
+    const app = express();
+    const PORT = 3000;
+
+    app.get('/', (req, res) => {
+        res.send("hello shubham");
+    });
+    app.listen(PORT, () => {
+        console.log("server started");
+    });
+
+    after this open terminal and type node + filename 
+    and in chrome for output type localhost:port number in my case it is localhost:300
+    -->
+
+    Middleware - will get executed before custom in server.js , used for handling authentication related like stuffs 
+    <!--
+    const express = require('express');
+    const app = express();
+    const PORT = 3000;
+
+    const customMiddleware = (req,res,next) => {
+        console.log("customMiddleware");
+        next();
+    }
+    app.use(customMiddleware);
+
+    app.get('/', (req, res) => {
+        console.log("hello shubham");
+        res.send("hello shubham");
+    });
+    app.get('/home', (req, res) => {
+        console.log("welcome to server");
+        res.send("welcome to server");
+    });
+
+    app.listen(PORT, () => {
+        console.log("server started");
+    });
+    -->
+    <br></br>
+    
+
+    setup free cloud mongoDB environment - install mongoDB (offline) or used cloud.mongoDb(it is online) - 
+    <!--connecting online mongodb server.js
+    const mongoose = require('mongoose');
+    const PORT = 3000;
+    const {MONGODB_URI} = require('./config');
+    mongoose.connect(MONGODB_URI);
+
+    mongoose.connection.on('connected', ()=> {
+        console.log("connected");
+    });
+    mongoose.connection.on('error', (error)=> {
+        console.log("not connected", error);
+    });
+
+    config.js
+    module.exports={
+    MONGODB_URI: "mongodb+srv://ShubhamDate:shubhdate0987@cluster0.fxmoklz.mongodb.net/?retryWrites=true&w=majority",
+    }
+    -->
+    <br>
+
+    making of usermodel - <br>
+    <!--
+        from user_model.js
+    const mongoose = require('mongoose');
+    const userSchema =  new mongoose.Schema({
+        fullName:{
+            type: String,
+            required: true
+        },
+        email:{
+            type:String,
+            required: true
+        },
+        password:{
+            type:String,
+            required: true
+        }
+    });
+    mongoose.model("UserModel", userSchema);
+
+    server.js
+    const mongoose = require('mongoose');
+    const PORT = 3000;
+    //  for user_model.js file
+    require('./models/user_model.js');
+    -->
+
+    authentication file js - <br>
+    <!--
+    from authentication.js
+    const express = require('express');
+    const router = express.Router();
+    router.get('/', (req,res)=> {
+        res.send('welcome to the mern course and we have success fully connected to the node');
+    });
+    module.exports = router;
+
+
+    server.js
+    //authentication .js
+    app.use(require('./routes/authentication'));
+    -->
+
+    Creating Resgistration REST API - <br>
+    <!--
+    from usermodel.js
+    const mongoose = require('mongoose');
+    const userSchema =  new mongoose.Schema({
+        name:{
+            type: String,
+            required: true
+        },
+        email:{
+            type:String,
+            required: true
+        },
+        password:{
+            type:String,
+            required: true
+        }
+    });
+    mongoose.model("UserModel", userSchema);
+
+
+    from authentication .js
+    const express = require('express');
+    const router = express.Router();
+    router.get('/', (req,res)=> {
+        res.send('welcome to the mern course and we have success fully connected to the node');
+    });
+    //creating resgistration rest api
+    router.post('/register', (req,res)=> {
+        console.log(req.body);
+        const {name, email, password} = req.body; // this is called object structuring
+
+        if(!name || !password || !email){
+            return res.status(400).json({error: "one or more mandotory feild is kept empty"});
+        }
+        res.json({result: "resistered succesfully"});
+    });
+    module.exports = router;
+
+
+    from server.js
+    //creating registration rest api
+    app.use(express.json()); // this will create a middleware in json
+
+    and in postman:
+    select new 
+    selectet post method
+    type http://localhost:3000/register
+    choose body in that choose raw and also tpye as json
+    and in feildtext write this: 
+    {
+        "name":"shubham date",
+        "email": "shubh@gmail.com",
+        "password": "12345678"
+    }
+    -->
+
+    saving user infornmation in database - <br>
+    <!--
+    from authentication.js
+    const express = require('express');
+    const router = express.Router();
+
+    // for saving information in database
+    const mongoose = require('mongoose');
+    const  UserModel = mongoose.model("UserModel");
+
+    router.get('/', (req,res)=> {
+        res.send('welcome to the mern course and we have success fully connected to the node');
+    });
+
+    //creating resgistration rest api
+    router.post('/register', (req,res)=> {
+        console.log(req.body);
+        const {name, email, password} = req.body; // this is called object structuring
+
+        if(!name || !password || !email){
+            return res.status(400).json({error: "one or more mandotory feild is kept empty"});
+        }
+        
+
+        // this is using if user is present already or not or to avoid duplicate person
+        UserModel.findOne({email:email})
+        .then((dbuser)=>{
+            if(dbuser){
+                return res.status(500).json({error: "User with this email already existed"});
+            }
+            const user = new UserModel({name, email, password});
+            user.save()
+            .then((u)=>{
+                res.status(201).json({result: "user resistered succesfully"});
+            })
+            .catch((error)=>{
+                console.log(error);
+            });
+        })
+        .catch((error)=>{
+            console.log(error);
+        });
+    });
+    module.exports = router;
+
+
+    rest is same as increating registration rest api
+    -->
+
+
+    encrypting password before saving information - means saving the password in private <br>
+    <!--
+    const express = require('express');
+    const router = express.Router();
+
+    // for saving information in database
+    const mongoose = require('mongoose');
+    const  UserModel = mongoose.model("UserModel");
+
+    // used for saving password in private and not showing to the world
+    const bcrypt = require('bcryptjs');
+
+    router.get('/', (req,res)=> {
+        res.send('welcome to the mern course and we have success fully connected to the node');
+    });
+
+    //creating resgistration rest api
+    router.post('/register', (req,res)=> {
+        console.log(req.body);
+        const {name, email, password} = req.body; // this is called object structuring
+
+        if(!name || !password || !email){
+            return res.status(400).json({error: "one or more mandotory feild is kept empty"});
+        }
+        
+
+        // this is using if user is present already or not or to avoid duplicate person
+        UserModel.findOne({email:email})
+        .then((dbuser)=>{
+            if(dbuser){
+                return res.status(500).json({error: "User with this email already existed"});
+            }
+
+            bcrypt.hash(password, 16) // 16 is number of values to be put for protextion
+            .then((hashedPassword)=>{
+                const user = new UserMode({name, email, password: hashedPassword});
+
+                user.save()
+                    .then((u)=>{
+                        res.status(201).json({result: "user resistered succesfully"});
+                    })
+                    .catch((error)=>{
+                        console.log(error);
+                    });
+            });
+        })
+        .catch((error)=>{
+            console.log(error);
+        });
+    });
+    module.exports = router;
+
+    rest is same as saving information in database
+    -->
+
+    Implementing login api - <br>
+    <!--
+    from authentication.js
+    const express = require('express');
+    const router = express.Router();
+
+    // for saving information in database
+    const mongoose = require('mongoose');
+    const  UserModel = mongoose.model("UserModel");
+
+    // used for saving password in private and not showing to the world
+    const bcrypt = require('bcryptjs');
+
+
+    router.get('/', (req,res)=> {
+        res.send('welcome to the mern course and we have success fully connected to the node');
+    });
+
+    //creating resgistration rest api
+    router.post('/register', (req,res)=> {
+        console.log(req.body);
+        const {name, email, password} = req.body; // this is called object structuring
+
+        if(!name || !password || !email){
+            return res.status(400).json({error: "one or more mandotory feild is kept empty"});
+        }
+        
+        // this is using if user is present already or not or to avoid duplicate person
+        UserModel.findOne({email:email})
+        .then((dbUser)=>{
+            if(dbUser){
+                return res.status(500).json({error: "User with this email already existed"});
+            }
+
+            bcrypt.hash(password, 16) // 16 is number of values to be put for protextion
+            .then((hashedPassword)=>{
+                const user = new UserMode({name, email, password: hashedPassword});
+
+                user.save()
+                    .then((u)=>{
+                        res.status(201).json({result: "user resistered succesfully"});
+                    })
+                    .catch((error)=>{
+                        console.log(error);
+                    });
+            });
+        })
+        .catch((error)=>{
+            console.log(error);
+        });
+    });
+
+    //login api
+    router.post('/login', (req,res)=>{
+        const {email,password} = req.body;
+        if(!email || !password){
+            return res.status(400).json({error: "one or more mandotory feild is kept empty"});
+        }
+        UserModel.findOne()
+        //if user is found
+        .then((dbUser)=>{
+            if(!dbUser){
+                // if users is npot found
+                return res.status(400).json({error: "the above user doesnot exist"});
+            }
+
+            // for password of user
+            bcrypt.compare(password, dbUser.password)
+            .then((didmatch)=>{
+                if(didmatch){
+                    res.status(200).json({result: "user logged in successfully succesfully"});
+                }
+                else{
+                    return res.status(400).json({error: "invalid email and password"});
+                }
+            })
+        })
+        .catch();
+    });
+    module.exports = router;
+
+    rest is same as server.js
+    -->
+
+    Implementing JWT(json web token) authectication - <br>
+    <!--
+    const express = require('express');
+    const router = express.Router();
+
+    // for saving information in database
+    const mongoose = require('mongoose');
+    const  UserModel = mongoose.model("UserModel");
+
+    // used for saving password in private and not showing to the world
+    const bcrypt = require('bcryptjs');
+
+    // jsonwebtoken
+    const jwt = require('jsonwebtoken');
+    // to fetch that token 
+    const {JWT_SECRET} = require('../config');
+
+
+    router.get('/', (req,res)=> {
+        res.send('welcome to the mern course and we have success fully connected to the node');
+    });
+
+    //creating resgistration rest api
+    router.post('/register', (req,res)=> {
+        console.log(req.body);
+        const {name, email, password} = req.body; // this is called object structuring
+
+        if(!name || !password || !email){
+            return res.status(400).json({error: "one or more mandotory feild is kept empty"});
+        }
+        
+
+        // this is using if user is present already or not or to avoid duplicate person
+        UserModel.findOne({email:email})
+        .then((dbUser)=>{
+            if(dbUser){
+                return res.status(500).json({error: "User with this email already existed"});
+            }
+
+            bcrypt.hash(password, 16) // 16 is number of values to be put for protextion
+            .then((hashedPassword)=>{
+                const user = new UserMode({name, email, password: hashedPassword});
+
+                user.save()
+                    .then((u)=>{
+                        res.status(201).json({result: "user resistered succesfully"});
+                    })
+                    .catch((error)=>{
+                        console.log(error);
+                    });
+            });
+        })
+        .catch((error)=>{
+            console.log(error);
+        });
+    });
+
+
+    //login api
+    router.post('/login', (req,res)=>{
+        const {email,password} = req.body;
+        if(!email || !password){
+            return res.status(400).json({error: "one or more mandotory feild is kept empty"});
+        }
+        UserModel.findOne()
+        //if user is found
+        .then((dbUser)=>{
+            if(!dbUser){
+                // if users is npot found
+                return res.status(400).json({error: "the above user does not exist"});
+            }
+
+            // for password of user
+            bcrypt.compare(password, dbUser.password)
+            .then((didmatch)=>{
+                if(didmatch){
+                    // res.status(200).json({result: "user logged in successfully succesfully"});
+                    // creating and sending a token  so that user dont have to write email and password everytime and we will give them a token so that they can easily logion 
+
+                    const JWTtOKEN = jwt.sign({_id:dbUser._id}, JWT_SECRET);
+                    res.json({token: JWTtOKEN});
+                }
+                else{
+                    return res.status(400).json({error: "invalid email and password"});
+                }
+            })
+        })
+        .catch();
+    });
+    module.exports = router;
+    -->
+
+    Implementing middleware for protected routes - <br>
+    <!--
+    const express = require('express');
+    const router = express.Router();
+
+    // for saving information in database
+    const mongoose = require('mongoose');
+    const  UserModel = mongoose.model("UserModel");
+
+    // used for saving password in private and not showing to the world
+    const bcrypt = require('bcryptjs');
+
+    // jsonwebtoken
+    const jwt = require('jsonwebtoken');
+    // to fetch that token 
+    const {JWT_SECRET} = require('../config');
+
+
+    // protectedreourersce
+    const protectedresourecse = require('../middleware/protectedresourecse');
+
+    router.get('/', (req,res)=> {
+        res.send('welcome to the mern course and we have success fully connected to the node');
+    });
+
+    // securing token and giving it to user
+    router.get('/secured', (req,res)=> {
+        res.send('welcome to secured network');
+    });
+
+    //creating resgistration rest api
+    router.post('/register', (req,res)=> {
+        console.log(req.body);
+        const {name, email, password} = req.body; // this is called object structuring
+
+        if(!name || !password || !email){
+            return res.status(400).json({error: "one or more mandotory feild is kept empty"});
+        }
+        
+
+        // this is using if user is present already or not or to avoid duplicate person
+        UserModel.findOne({email:email})
+        .then((dbUser)=>{
+            if(dbUser){
+                return res.status(500).json({error: "User with this email already existed"});
+            }
+
+            bcrypt.hash(password, 16) // 16 is number of values to be put for protextion
+            .then((hashedPassword)=>{
+                const user = new UserMode({name, email, password: hashedPassword});
+
+                user.save()
+                    .then((u)=>{
+                        res.status(201).json({result: "user resistered succesfully"});
+                    })
+                    .catch((error)=>{
+                        console.log(error);
+                    });
+            });
+        })
+        .catch((error)=>{
+            console.log(error);
+        });
+    });
+
+
+    //login api
+    router.post('/login', (req,res)=>{
+        const {email,password} = req.body;
+        if(!email || !password){
+            return res.status(400).json({error: "one or more mandotory feild is kept empty"});
+        }
+        UserModel.findOne()
+        //if user is found
+        .then((dbUser)=>{
+            if(!dbUser){
+                // if users is npot found
+                return res.status(400).json({error: "the above user does not exist"});
+            }
+
+            // for password of user
+            bcrypt.compare(password, dbUser.password)
+            .then((didmatch)=>{
+                if(didmatch){
+                    // res.status(200).json({result: "user logged in successfully succesfully"});
+                    // creating and sending a token  so that user dont have to write email and password everytime and we will give them a token so that they can easily logion 
+
+                    const JWTtOKEN = jwt.sign({_id:dbUser._id}, JWT_SECRET);
+                    res.json({token: JWTtOKEN});
+                }
+                else{
+                    return res.status(400).json({error: "invalid email and password"});
+                }
+            })
+        })
+        .catch();
+    });
+    module.exports = router;
+ 
+
+    from protectedresourse.js
+    // jsonwebtoken
+    const jwt = require('jsonwebtoken');
+    // to fetch that token 
+    const {JWT_SECRET} = require('../config');
+
+    // for saving information in database
+    const mongoose = require('mongoose');
+    const  UserModel = mongoose.model("UserModel");
+
+
+    module.exports = (req,res, next) => {
+        const {authorization} = req.header;
+        // authorisation header way -. Bearere + token of login
+        if(!authorization){
+            return res.status(401).json({error : "user not logged in"});
+        }
+
+        // if authorization header exist
+        const token = authorization.replace("Bearer ", "");
+        jwt.verify(token, JWT_SECRET, (error, payload)=> {
+            if(error){
+                return res.status(401).json({error : "user not logged in"});
+            }
+            
+            const {_id} = payload;
+            UserModel.findById(_id)
+            .then(dbUser=>{
+                req.dbUser = dbUser;
+            });
+
+            //forwarding request to next middleware or to the next route
+            next();
+        });
+
+    }
+    -->
+
+
+    Setting up POST Model with mongoose - <br>
+    <!--
+    from server.js
+    // for post model
+    require('./models/post_model');
+
+
+    from postmodel.js
+    const mongoose = require('mongoose');
+
+    // establishing relation between usermodel and postmodel
+    //linking usermodel and postmodel
+    const {objectId} = mongoose.Schema.Types;
+
+    const  PostSchema =  new mongoose.Schema({
+        posttitle:{
+            type: String,
+            required: true
+        },
+        postbody:{
+            type:String,
+            required: true
+        },
+        postimage:{
+            type:String,
+            default: 'no image available'
+        },
+        author:{
+            type: objectId,
+            ref : UserModel
+        }
+    });
+    mongoose.model("PostModel", PostSchema);
+    -->
+
+    setting up route for post -  <br>
+    <!--
+    from post route.js
+    const express = require('express');
+    const router = express.Router();
+    // for saving information in database
+    const mongoose = require('mongoose');
+    // protectedreourersce
+    const protectedresourecse = require('../middleware/protectedresourecse');
+    const  PostModel = mongoose.model("PostModel");
+
+
+    router.post('/createpost', protectedresourecse, (req,res)=> {
+        const {posttitle, postbody} = req.body;
+
+        if(!posttitle || !postbody){
+            return res.status(400).json({error: "one or more mandotory feild is kept empty"});
+        }
+
+        const  post =new PostModel({title: posttitle, body: postbody, author:req.dbUse });
+        // console.log(req.dbUser);
+        // res.send("Done");
+    });
+    module.exports = router;
+
+    from postmodel.js
+    const mongoose = require('mongoose');
+    // establishing relation between usermodel and postmodel
+    //linking usermodel and postmodel
+    const {objectId} = mongoose.Schema.Types;
+
+    const  PostSchema =  new mongoose.Schema({
+        posttitle:{
+            type: String,
+            required: true
+        },
+        postbody:{
+            type:String,
+            required: true
+        },
+        postimage:{
+            type:String,
+            default: 'no image available'
+        },
+        author:{
+            type: objectId,
+            ref : UserModel
+        }
+    });
+    mongoose.model("PostModel", PostSchema);
+
+    from server.js
+    //postroute.js
+    app.use(require('./routes/postroute'));
+    -->
+
+
+    Implementing create post API - <br>
+    <!--
+    from postroute.js
+    const express = require('express');
+    const router = express.Router();
+    // for saving information in database
+    const mongoose = require('mongoose');
+    // protectedreourersce
+    const protectedresourecse = require('../middleware/protectedresourecse');
+    const  PostModel = mongoose.model("PostModel");
+
+    router.post('/createpost', protectedresourecse, (req,res)=> {
+        const {posttitle, postbody} = req.body;
+
+        if(!posttitle || !postbody){
+            return res.status(400).json({error: "one or more mandotory feild is kept empty"});
+        }
+
+        const  post =new PostModel({title: posttitle, body: postbody, author:req.dbUse });
+        // console.log(req.dbUser);
+        // res.send("Done");
+
+        post.save()
+        .then((dbPost) => {
+            res.status(201).json({post : dbPost});
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+    });
+    module.exports = router;
+    -->
+
+    do not returnn password issue - <br>
+    <!--
+    from postroue.js
+    //to not return password 
+    req.dbUser.password = undefined;
+    -->
+
+    get all post from user - <br>
+    <!--
+        from postroute.js  
+    //getting all post from user
+
+    router.get('/allposts', (req,res)=> {
+        PostModel.find()
+        .populate("author")
+        .then((dballPosts) => {
+            res.status(200).json({allposts : dballPosts});
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+    });
+    -->
+
+    get all post for current logged in user - <br>
+    <!--
+    from postroute.js
+    const express = require('express');
+    const router = express.Router();
+    // for saving information in database
+    const mongoose = require('mongoose');
+    // protectedreourersce
+    const protectedresourecse = require('../middleware/protectedresourecse');
+    const  PostModel = mongoose.model("PostModel");
+
+
+    //getting all post from user
+
+    router.get('/allposts',protectedresourecse, (req,res)=> {
+        PostModel.find({author: req.dbUser._id})
+        .populate("author")
+        .then((dballPosts) => {
+            res.status(200).json({allposts : dballPosts});
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+    });
+
+    router.post('/createpost', protectedresourecse, (req,res)=> {
+        const {posttitle, postbody} = req.body;
+
+        if(!posttitle || !postbody){
+            return res.status(400).json({error: "one or more mandotory feild is kept empty"});
+        }
+
+        const  post =new PostModel({title: posttitle, body: postbody, author:req.dbUse });
+        // console.log(req.dbUser);
+        // res.send("Done");
+
+        //to not return password 
+        req.dbUser.password = undefined;
+
+        post.save()
+        .then((dbPost) => {
+            res.status(201).json({post : dbPost});
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+    });
+    module.exports = router;
+    -->
+
+
+    
+    <p><b>FRONTEND => React</b></p>
+
+    downloading react by npx create-react-app FRONTEND <br>
+    next step installing npm install react-router-dom --save <br>
+    starting for react type npm start <br>
+    styling css we are going to use materialize.css  getv cdn and paste in index.html in public folder<br>
+    <!-- Compiled and minified CSS -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+    <!-- Compiled and minified JavaScript -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
+ 
+
+    making navbar with materilizecss - <br>
+    <!--
+    from navbar.js
+    import React from 'react';
+import './navbar.css';
+
+import { Link } from 'react-router-dom';
+
+const Navbar = () =>{
+    return (
+        <nav>
+            <div class="nav-wrapper white">
+            <Link to="/Home" className="brand-logo">Logo</Link>
+            <ul id="nav-mobile" className="right">
+                <li><Link to="/Login">Login</Link></li>
+                <li><Link to="/Signup">Signup</Link></li>
+                <li><Link to="/Profile">Profile</Link></li>
+            </ul>
+            </div>
+        </nav>
+    );
+}
+
+export default Navbar;
+
+    from app.js
+    import React from "react";
+    import Navbar from "./components/navbar";
+
+    function App() {
+    return (
+        <div>
+        <Navbar />
+        </div>
+    );
+    }
+    export default App;
+    -->
+
+
+    add react Vsc etension and further styling navbar - <br>
+
+    updating react router dom version 5 - <br>
+
+    adding pages and udating routing - <br>
+    <!--
+    from navbar.js
+    import React from 'react';
+import './navbar.css';
+
+import { Link } from 'react-router-dom';
+
+const Navbar = () =>{
+    return (
+        <nav>
+            <div class="nav-wrapper white">
+            <Link to="/Home" className="brand-logo">Logo</Link>
+            <ul id="nav-mobile" className="right">
+                <li><Link to="/Login">Login</Link></li>
+                <li><Link to="/Signup">Signup</Link></li>
+                <li><Link to="/Profile">Profile</Link></li>
+            </ul>
+            </div>
+        </nav>
+    );
+}
+
+export default Navbar;
+
+
+    from home.js
+    import React from 'react'
+
+function Home() {
+  return (
+    <div>home</div>
+  )
+}
+
+export default Home
+
+    similary fro login.js, signup.js, profile.js
+
+    from app.js
+    import React from 'react';
+import './App.css';
+
+import Navbar from './componenets/navbar';
+
+//routing all pages
+import Home from './pages/home';
+import Login from './pages/login';
+import Signup from './pages/signup';
+import Profile from './pages/profile';
+
+// making of routing mechanism
+import {BrowserRouter, Route} from 'react-router-dom';
+
+function App() {
+  return (
+    <BrowserRouter className="App">
+      <Navbar/>
+        <Route exact path="/">
+          <Home/>
+        </Route>
+        <Route path="/Login">
+          <Login/>
+        </Route>
+        <Route path="/Signup">
+          <Signup/>
+        </Route>
+        <Route path="/Profile">
+          <Profile/>
+        </Route>
+    </BrowserRouter>
+  );
+}
+
+export default App;
+    -->
+
+
+    stoping page refresh with link tag - <br>
+    <!--
+        import { Link } from 'react-router-dom';
+        and chnaging all a tag with Link tag;
+    -->
+
+    Working on login screen - in login.js<br>
+    <!--
+    from login.js
+    import React from 'react'
+    import {Link} from 'react-router-dom';
+
+    function Login() {
+    return (
+        <div className='login-container'>
+            <div className='card login-card input-field'>
+                <h2>Instagram Login</h2>
+                <input type="text" placeholder="Email"/>
+                <input type="password" placeholder="Password"/>
+
+                <button class="waves-effect waves-light btn #2979ff blue accent-3">Login</button>
+                <h6>
+                    <Link to="/signup">Dont't have an account?</Link>
+                </h6>
+            </div>
+        </div>
+    )
+    }
+    export default Login
+
+
+    from app.css
+    /* for  login.js */
+    .login-container{
+    margin: 35px;
+    }
+
+    .login-card{
+    padding: 25px;
+    text-align: center;
+    max-width: 450px;
+    margin: 10px auto;
+    }
+
+    /* label underline focus color */
+    .input-field input:focus {
+    border-bottom: 1px solid rgb(23, 219, 245) !important;
+    box-shadow: 0 1px 0 0 rgb(23, 219, 245) !important;
+    }
+    -->
+
+    working on signup screen - <br>
+    <!--
+     import React from 'react'
+
+import React from 'react'
+
+import {Link} from 'react-router-dom';
+
+function Signup() {
+  return (
+    <div>
+      <div className='login-container'>
+        <div className='card login-card input-field'>
+            <h2>Instagram Signup</h2>
+            <input type="text" placeholder="Full Name"/>
+            <input type="text" placeholder="Email"/>
+            <input type="password" placeholder="Password"/>
+
+            <button class="waves-effect waves-light btn #2979ff blue accent-3">Signup</button>
+
+            <h6>
+              <Link to="/login">Already have an account?</Link>
+            </h6>
+        </div>
+      </div>
+    </div>
+  )
+}
+export default Signup 
+    -->
+
+    working on profile screen - <br>
+    <!--
+    from profile.js
+    import React from 'react'
+    import './profile.css';
+
+    function Profile() {
+    return (
+        <div>
+        <div className='profile-container'>
+            <div>
+            <img src="https://images.unsplash.com/photo-1473830394358-91588751b241?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjF8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" style={{width:"165px", height:"165px",bordeRadius:"50%"}} />
+            </div>
+            <div className='details-section'>
+            <h3>Shubham Date</h3>
+            <div className='following'>
+                <h6>10 posts</h6>
+                <h6>1000 Followers</h6>
+                <h6>1200 Following</h6>
+            </div>
+            </div>
+        </div>
+        </div>
+    )
+    }
+    export default Profile
+
+    from profile.css
+    .profile-container{
+        display: flex;
+        justify-content: space-around;
+        margin: 20px 0px;
+        border-bottom: 2px solid grey;
+    }
+    .details-section{
+        width: 300px;
+    }
+    .following{
+        display: flex;
+        justify-content: space-between;
+        width: 120%;
+    }
+    -->
+
+    Working on profile page gallery section - <br>
+    <!--
+    from profile.js
+    import React from 'react'
+    import './profile.css';
+
+    function Profile() {
+    return (
+        <div className='main-container'>
+        <div className='profile-container'>
+            <div>
+            <img src="https://images.unsplash.com/photo-1473830394358-91588751b241?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjF8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" style={{width:"165px", height:"165px",bordeRadius:"50%"}} />
+            </div>
+            <div className='details-section'>
+            <h3>Shubham Date</h3>
+            <div className='following'>
+                <h6>10 posts</h6>
+                <h6>1000 Followers</h6>
+                <h6>1200 Following</h6>
+            </div>
+            </div>
+        </div>
+
+        <div className='all-post'>
+            <img className='post' src="https://images.unsplash.com/photo-1496302662116-35cc4f36df92?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"/>
+
+            <img className='post' src="https://images.unsplash.com/photo-1496302662116-35cc4f36df92?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"/>
+
+            <img className='post' src="https://images.unsplash.com/photo-1496302662116-35cc4f36df92?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"/>
+
+            <img className='post' src="https://images.unsplash.com/photo-1496302662116-35cc4f36df92?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"/>
+
+            <img className='post' src="https://images.unsplash.com/photo-1496302662116-35cc4f36df92?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"/>
+
+            <img className='post' src="https://images.unsplash.com/photo-1496302662116-35cc4f36df92?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"/>
+        </div>
+        </div>
+    )
+    }
+    export default Profile
+
+    from profile.css
+    .profile-container{
+        display: flex;
+        justify-content: space-around;
+        margin: 20px 0px;
+        border-bottom: 2px solid grey;
+    }
+
+    .details-section{
+        width: 300px;
+    }
+
+    .following{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .all-post{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .post{
+        width: 30%;
+        margin-top: 10px;
+    }
+
+    .main-container{
+        max-width: 650px;
+        margin: 0px auto;
+    }
+    -->
+
+    working on homepage post section - <br>
+    <!--
+    from home.js
+    import React from 'react'
+
+    import './home.css';
+
+    function Home() {
+    return (
+        <div className='home-container'>
+        {/* card 1 */}
+        <div className='card home-card'>
+            <h5>Shubham Date</h5>
+            <div className='card-image'>
+            <img src='https://images.unsplash.com/photo-1518495973542-4542c06a5843?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cG9zdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=400&q=60'/>
+            </div>
+            <div className='card-content'>
+            <i class="material-icons" style={{color:"red"}}>favorite</i>
+            <h6>Post Title</h6>
+            <p>Welcome to the world of instagram</p>
+            <input type="text" placeholder="Enter your comment" />
+            </div>
+        </div>
+
+        {/* card 2 */}
+        <div className='card home-card'>
+            <h5>Shubham Date</h5>
+            <div className='card-image'>
+            <img src='https://images.unsplash.com/photo-1466096115517-bceecbfb6fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8cG9zdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=400&q=60'/>
+            </div>
+            <div className='card-content'>
+            <i class="material-icons" style={{color:"red"}}>favorite</i>
+            <h6>Post Title</h6>
+            <p>Welcome to the world of instagram</p>
+            <input type="text" placeholder="Enter your comment" />
+            </div>
+        </div>
+
+
+        {/* card 3 */}
+        <div className='card home-card'>
+            <h5>Shubham Date</h5>
+            <div className='card-image'>
+            <img src='https://images.unsplash.com/photo-1531564701487-f238224b7ce3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cG9zdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=400&q=60'/>
+            </div>
+            <div className='card-content'>
+            <i class="material-icons" style={{color:"red"}}>favorite</i>
+            <h6>Post Title</h6>
+            <p>Welcome to the world of instagram</p>
+            <input type="text" placeholder="Enter your comment" />
+            </div>
+        </div>
+
+
+        {/* card 4 */}
+        <div className='card home-card'>
+            <h5>Shubham Date</h5>
+            <div className='card-image'>
+            <img src='https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cG9zdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=400&q=60'/>
+            </div>
+            <div className='card-content'>
+            <i class="material-icons" style={{color:"red"}}>favorite</i>
+            <h6>Post Title</h6>
+            <p>Welcome to the world of instagram</p>
+            <input type="text" placeholder="Enter your comment" />
+            </div>
+        </div>
+        </div>
+    )
+    }
+    export default Home
+
+    from home.css
+    .home-card{
+        max-width: 550px;
+        height: max-content;
+        margin: 25px auto;
+    }
+    -->
+
+
+    working on create a post page - <br>
+    <!--
+    from createpost.js
+    import React from 'react'
+    import './createpost.css';
+
+    function Createpost() {
+    return (
+        <div className='card create-post-container'>
+            <input type="text" placeholder="Post Title"/>
+            <input type="text" placeholder="Post Content"/>
+
+            <div className="file-field input-field">
+                <div className="btn #64b5f6 blue lighten-2">
+                    <span>Upload a image</span>
+                    <input type="file" />
+                </div>
+                <div className="file-path-wrapper">
+                    <input className="file-path validate" type="text" />
+                </div>
+            </div>
+
+            <button className='btn waves-effect waves-light btn-large #64b5f6 blue lighten-2'>Submit Post</button>
+        </div>
+    )
+    }
+    export default Createpost
+
+    from createpost.css
+    .create-post-container{
+        max-width: 650px;
+        margin: 40px auto;
+        padding: 20px;
+        text-align: center;
+    }
+    -->
+
+    running frontend and backend at a same time --<br>
+    <!--
+        for backend we are going to start nodemon server.js
+        for frontend we are gfoing to start npm start run 
+    -->
+
+    adding state variables to signup page - creating a connection from react app to mern stack backen by usestate by creating variables<br>
+    <!--
+    from signup.js
+    import React, { useState } from 'react'
+
+import {Link} from 'react-router-dom';
+
+function Signup() {
+
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+
+  return (
+    <div>
+      <div className='login-container'>
+        <div className='card login-card input-field'>
+            <h2>Instagram Signup</h2>
+            <input type="text" placeholder="Full Name" value={fullName} onChange={(event)=>setFullName(event.target.value)}/>
+            {/* the fullname values comes and whenevr there is change that new value will be assigned */}
+            <input type="text" placeholder="Email" value={email} onChange={(event)=>setEmail(event.target.value)}/>
+            <input type="password" placeholder="Password" value={password} onChange={(event)=>setPassword(event.target.value)}/>
+
+            <button class="waves-effect waves-light btn #2979ff blue accent-3">Signup</button>
+
+            <h6>
+              <Link to="/login">Already have an account?</Link>
+            </h6>
+        </div>
+      </div>
+    </div>
+  )
+}
+export default Signup
+    -->
+
+    connecting sigup page to backend registration - taking name email and password and submitting to server<br>
+    <!--
+    from signup page 
+    import React, { useState } from 'react'
+    import {Link} from 'react-router-dom';
+
+    function Signup() {
+
+    const [fullName, setFullName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const register = () => {
+        fetch("https://localhost:4000/register", {
+        method : "post",
+        headers : {
+            "Content-Type": "application/json"
+        },
+        body : JSON.stringify({
+            fullName : fullName,
+            email : email,
+            password: password
+        })
+        })
+        .then(Response => Response.json())
+        .then((data) => {
+        console.log(data);
+        });
+    }
+
+
+    return (
+        <div>
+        <div className='login-container'>
+            <div className='card login-card input-field'>
+                <h2>Instagram Signup</h2>
+                <input type="text" placeholder="Full Name" value={fullName} onChange={(event)=>setFullName(event.target.value)}/>
+                {/* the fullname values comes and whenevr there is change that new value will be assigned */}
+                <input type="text" placeholder="Email" value={email} onChange={(event)=>setEmail(event.target.value)}/>
+                <input type="password" placeholder="Password" value={password} onChange={(event)=>setPassword(event.target.value)}/>
+
+                <button onClick={() => register()} className="waves-effect waves-light btn #2979ff blue accent-3">Signup</button>
+
+                <h6>
+                <Link to="/login">Already have an account?</Link>
+                </h6>
+            </div>
+        </div>
+        </div>
+    )
+    }
+    export default Signup
+    -->
+
+
+    sloving CROS issue - getting an error while fetching port 3000 to 4000
+    one way  is to tell the backend allow from all domain servers by enabling CORS at the backend - npm install CORS and using it in backend
+    second method is that by proxy method 
+    in frontend . package.json file we will add proxy(url) of backend in it <br>
+    <!--
+    from signup.js
+    import React, { useState } from 'react'
+
+    import {Link} from 'react-router-dom';
+
+    function Signup() {
+
+    const [fullName, setFullName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const register = () => {
+        fetch("/register", {
+        method : "post",
+        headers : {
+            "Content-Type": "application/json"
+        },
+        body : JSON.stringify({
+            fullName : fullName,
+            email : email,
+            password: password
+        })
+        })
+        .then(Response => Response.json())
+        .then((data) => {
+        console.log(data);
+        });
+    }
+
+
+    return (
+        <div>
+        <div className='login-container'>
+            <div className='card login-card input-field'>
+                <h2>Instagram Signup</h2>
+                <input type="text" placeholder="Full Name" value={fullName} onChange={(event)=>setFullName(event.target.value)}/>
+                {/* the fullname values comes and whenevr there is change that new value will be assigned */}
+                <input type="text" placeholder="Email" value={email} onChange={(event)=>setEmail(event.target.value)}/>
+                <input type="password" placeholder="Password" value={password} onChange={(event)=>setPassword(event.target.value)}/>
+
+                <button onClick={() => register()} className="waves-effect waves-light btn #2979ff blue accent-3">Signup</button>
+
+                <h6>
+                <Link to="/login">Already have an account?</Link>
+                </h6>
+            </div>
+        </div>
+        </div>
+    )
+    }
+
+    export default Signup
+
+
+    and in package .json file - 
+        {
+    "name": "frontend",
+    "version": "0.1.0",
+    "private": true,
+    "proxy": "http://localhost:4000",
+    "dependencies": {
+        "@testing-library/jest-dom": "^5.16.5",
+        "@testing-library/react": "^13.4.0",
+        "@testing-library/user-event": "^13.5.0",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-scripts": "5.0.1",
+        "web-vitals": "^2.1.4"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+    },
+    "eslintConfig": {
+        "extends": [
+        "react-app",
+        "react-app/jest"
+        ]
+    },
+    "browserslist": {
+        "production": [
+        ">0.2%",
+        "not dead",
+        "not op_mini all"
+        ],
+        "development": [
+        "last 1 chrome version",
+        "last 1 firefox version",
+        "last 1 safari version"
+        ]
+    }
+    }
+-->
+    Adding a toast message on frontend for error - means getting our backend error on the screen as a message<br>
+    <!--
+    from signup.js
+
+    import React, { useState } from 'react'
+    import {Link} from 'react-router-dom';
+    import M from 'materialize-css';
+
+    function Signup() {
+
+    const [fullName, setFullName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const register = () => {
+        fetch("/register", {
+        method : "post",
+        headers : {
+            "Content-Type": "application/json"
+        },
+        body : JSON.stringify({
+            fullName : fullName,
+            email : email,
+            password: password
+        })
+        })
+        .then(Response => Response.json())
+        .then((data) => {
+        console.log(data);
+        if(data.error){
+            M.toast({html: data.error})
+        }
+        });
+    }
+
+    return (
+        <div>
+        <div className='login-container'>
+            <div className='card login-card input-field'>
+                <h2>Instagram Signup</h2>
+                <input type="text" placeholder="Full Name" value={fullName} onChange={(event)=>setFullName(event.target.value)}/>
+                {/* the fullname values comes and whenevr there is change that new value will be assigned */}
+                <input type="text" placeholder="Email" value={email} onChange={(event)=>setEmail(event.target.value)}/>
+                <input type="password" placeholder="Password" value={password} onChange={(event)=>setPassword(event.target.value)}/>
+
+                <button onClick={() => register()} className="waves-effect waves-light btn #2979ff blue accent-3">Signup</button>
+
+                <h6>
+                <Link to="/login">Already have an account?</Link>
+                </h6>
+            </div>
+        </div>
+        </div>
+    )
+    }
+
+    export default Signup
+    -->
+
+    further styling toast message for best frontend -  <br> 
+    <!--
+    from sigup.js
+    import React, { useState } from 'react'
+    import {Link} from 'react-router-dom';
+    import M from 'materialize-css';
+    import './signup.css';
+
+    function Signup() {
+
+    const [fullName, setFullName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const register = () => {
+        fetch("/register", {
+        method : "post",
+        headers : {
+            "Content-Type": "application/json"
+        },
+        body : JSON.stringify({
+            fullName : fullName,
+            email : email,
+            password: password
+        })
+        })
+        .then(Response => Response.json())
+        .then((data) => {
+        console.log(data);
+        if(data.error){
+            M.toast({html: data.error, classes: "#c62828 red darken-3"})
+        }
+        else{
+            M.toast({html: data.result, classes: "#388e3c green darken-2"})
+        }
+        });
+    }
+
+
+    return (
+        <div>
+        <div className='login-container'>
+            <div className='card login-card input-field'>
+                <h2>Instagram Signup</h2>
+                <input type="text" placeholder="Full Name" value={fullName} onChange={(event)=>setFullName(event.target.value)}/>
+                {/* the fullname values comes and whenevr there is change that new value will be assigned */}
+                <input type="text" placeholder="Email" value={email} onChange={(event)=>setEmail(event.target.value)}/>
+                <input type="password" placeholder="Password" value={password} onChange={(event)=>setPassword(event.target.value)}/>
+
+                <button onClick={() => register()} className="waves-effect waves-light btn #2979ff blue accent-3">Signup</button>
+
+                <h6>
+                <Link to="/login">Already have an account?</Link>
+                </h6>
+            </div>
+        </div>
+        </div>
+    )
+    }
+
+    export default Signup
+
+    from signup.css
+    #taost-container{
+        top: 35px !important;
+        right: 25px !important;
+        right: auto;
+    }
+    -->
+
+    naviagte user to login page after successful new registartion - <br>
+    <!--
+    from signup.js
+    import {Link, useHistory } from 'react-router-dom';
+
+        const register = () => {
+        fetch("/register", {
+        method : "post",
+        headers : {
+            "Content-Type": "application/json"
+        },
+        body : JSON.stringify({
+            fullName : fullName,
+            email : email,
+            password: password
+        })
+        })
+        .then(Response => Response.json())
+        .then((data) => {
+        console.log(data);
+        if(data.error){
+            M.toast({html: data.error, classes: "#c62828 red darken-3"});
+        }
+        else{
+            M.toast({html: data.result, classes: "#388e3c green darken-2"});
+            history.push('/login');
+        }
+        });
+    }
+
+    rest is same as signup.js
+    -->
+
+    form input validation - <br>
+    <!--
+    from signup.js
+    const register = () => {
+
+      if(!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)){
+        M.toast({html: "enetr a valid email", classes: "#c62828 red darken-3"});
+        return 
+      }
+    -->
+
+    integrating login page with backend login api -  <br>
+    <!--
+        from login.js
+        import {Link, useHistory } from 'react-router-dom';
+    import M from 'materialize-css';
+    import React, { useState } from 'react'
+
+    function Login() {
+
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const history = useHistory();
+
+    const login = () => {
+
+        if(!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)){
+            M.toast({html: "enter a valid email", classes: "#c62828 red darken-3"});
+            return 
+        }
+
+        fetch("/login", {
+        method : "post",
+        headers : {
+            "Content-Type": "application/json"
+        },
+        body : JSON.stringify({
+            email : email,
+            password: password
+        })
+        })
+        .then(Response => Response.json())
+        .then((data) => {
+        console.log(data);
+        if(data.error){
+            M.toast({html: data.error, classes: "#c62828 red darken-3"});
+        }
+        else{
+            M.toast({html: "logged in successful", classes: "#388e3c green darken-2"});
+            history.push('/');
+        }
+        })
+        .catch((error) => {
+        console.log(error);
+        });
+    }
+
+
+    return (
+        <div className='login-container'>
+            <div className='card login-card input-field'>
+                <h2>Instagram Login</h2>
+                <input type="text" placeholder="Email" value={email} onChange={(event)=>setEmail(event.target.value)}/>
+                <input type="password" placeholder="Password" value={password} onChange={(event)=>setPassword(event.target.value)}/>
+
+                <button onClick={() => login()} class="waves-effect waves-light btn #2979ff blue accent-3">Login</button>
+
+                <h6>
+                <Link to="/signup">Dont't have an account?</Link>
+                </h6>
+            </div>
+        </div>
+    )
+    }
+
+    export default Login
+    -->
+
+
+
+    Enriching login api to get more user information - <br>
+    <!--
+    from authentication.js
+    bcrypt.compare(password, dbUser.password)
+        .then((didMatch)=>{
+            if(didMatch){
+                // res.status(200).json({result:"user logged in successfully"});
+                // create and send  a token
+                const jwtToken = jwt.sign({_id: dbUser._id}, JWT_SECRET);
+                const {_id, fullname, email} = dbUser;
+                res.json({token: jwtToken, userInfo: { _id, fullname, email });
+    -->
+
+    setup free cloud storage for storing images - <br>
+    <!--we are going to use cloudinary for that -->
+
+    adding state variables to create a post screen - <br>
+    <!--
+    from createpost.js
+    import React, {useState} from 'react'
+    import './createpost.css';
+
+    function Createpost() {
+    const [title, setTitle] = useState("");
+    const [body, setBody] = useState("");
+    const [image, setImage] = useState("");
+
+
+    return (
+        <div className='card create-post-container'>
+            <input value={title} onChange={(event)=>setTitle(event.target.value)} type="text" placeholder="Post Title"/>
+            <input value={body} onChange={(event)=>setBody(event.target.value)}  type="text" placeholder="Post Content"/>
+
+            <div className="file-field input-field">
+                <div className="btn #64b5f6 blue lighten-2">
+                    <span>Upload a image</span>
+                    <input value={image} onChange={(event)=> console.log(event.target.files)} type="file" />
+                </div>
+                <div className="file-path-wrapper">
+                    <input className="file-path validate" type="text" />
+                </div>
+            </div>
+
+            <button className='btn waves-effect waves-light btn-large #64b5f6 blue lighten-2'>Submit Post</button>
+        </div>
+    )
+    }
+
+    export default Createpost
+    -->
+
+    uploading post image in cloud storage - <br>
+    <!--
+    from createpost.js
+    import React, {useState} from 'react'
+    import './createpost.css';
+
+    function Createpost() {
+    const [title, setTitle] = useState("");
+    const [body, setBody] = useState("");
+    const [image, setImage] = useState("");
+
+    const submitPost = () => {
+        const formData = new FormData();
+        formData.append("file", image);
+        formData.append("upload_preset", "instagram app clone");
+        formData.append("cloud_name", "instagram app clone");
+
+        fetch("https://api.cloudinary.com/v1_1/instagramappclone/image/upload", {
+        method: "post",
+        body : formData
+        }).then(response => response.json())
+        .then(data => {
+        console.log(data);
+        })
+        .catch((error) => console.log(error));
+    }
+
+
+
+    return (
+        <div className='card create-post-container'>
+            <input value={title} onChange={(event)=>setTitle(event.target.value)} type="text" placeholder="Post Title"/>
+            <input value={body} onChange={(event)=>setBody(event.target.value)}  type="text" placeholder="Post Content"/>
+
+            <div className="file-field input-field">
+                <div className="btn #64b5f6 blue lighten-2">
+                    <span>Upload a image</span>
+                    <input value={image} onChange={(event)=> console.log(event.target.files)} type="file" />
+                </div>
+                <div className="file-path-wrapper">
+                    <input className="file-path validate" type="text" />
+                </div>
+            </div>
+
+            <button onClick={()=> submitPost()} className='btn waves-effect waves-light btn-large #64b5f6 blue lighten-2'>Submit Post</button>
+        </div>
+    )
+    }
+
+    export default Createpost
+    -->
+
+    updating backend create a post api for storing post images in backend - <br>
+    <!--
+    from post model we have to vhange image required feild to true 
+    from postroute.js 
+    const express = require('express');
+    const router = express.Router();
+    const mongoose = require('mongoose');
+    const protectedresource = require('../middleware/protectedresource');
+    const protectedRoute = require('../middleware/protectedresource');
+    const PostModel = mongoose.model("PostModel");
+
+
+    router.get('/posts', (req,res)=>{
+        PostModel.find()
+        .populate("author")
+        .then((dbPosts)=>{
+            res.status(200).json({posts: dbPosts});
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+    });
+
+    router.get('/myposts',protectedRoute, (req,res)=>{
+        PostModel.find({author: req.dbUser._id})
+        .populate("author")
+        .then((dbPosts)=>{
+            res.status(200).json({posts: dbPosts});
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+    });
+
+
+    router.post('./createpost',protectedresource ,(req,res) =>{
+        const {title,body, image} = req.body;
+
+        if(!title || !body || !image){
+            return res.status(400).json({error: "one or more mandatory feild is required"});
+        }
+        // console.log(req.dbUser);
+        // res.send("Done");
+        req.dbUser.password = undefined;
+
+        const post = new PostModel({title,body,image: image, author: req.dbUser});
+
+        post.save()
+        .then((dbPost)=>{
+            res.status(201).json({post: dbPost});
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+    })
+
+    module.exports = router;
+    -->
+
+
+    storing loggedin user info in local storage - <br>
+    <!--
+        from login.js
+        .then(response => response.json())
+        .then(function (data) {
+        console.log(data);
+        if(data.error){
+            M.toast({html: data.error, classes: "#c62828 red darken-3"});
+        }
+        else{
+            localStorage.setItem("token", data.token);
+            localStorage.setItem("userInfo", JSON.stringify(data.userInfo));
+            M.toast({html: "logged in successful", classes: "#388e3c green darken-2"});
+            history.push('/');
+        }
+        })
+        .catch((error) => {
+        console.log(error);
+        });
+    }
+    -->
+
+    saving new post by making API call - <br>
+    <!--
+    from createpost.js 
+    import React, {useState, useEffect} from 'react'
+    import './createpost.css';
+    import M from 'materialize-css';
+    import {useHistory } from 'react-router-dom';
+
+    function Createpost() {
+    const [title, setTitle] = useState("");
+    const [body, setBody] = useState("");
+    const [image, setImage] = useState("");
+    const history = useHistory();
+    
+
+    useEffect(()=> {
+        if(image){// call when the value of image eists
+        //call to create a post api
+        fetch("/createpost", {
+            method : "post",
+            headers : {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + localStorage.getItem("token")
+            },
+            body : JSON.stringify({
+            title : title,
+            body : body,
+            image: image
+            })
+        })
+        .then(response => response.json())
+        .then((data) => {
+            if(data.error){
+            M.toast({html: data.error, classes: "#c62828 red darken-3"});
+            }
+            else{
+            M.toast({html: "post created successfully!", classes: "#388e3c green darken-2"});
+            history.push('/');
+            }
+        })
+        .catch((error) => {
+            console.log(error);
+        })
+
+        }
+    }, [image]);// only call when the value of image changes
+
+    const submitPost = () => {
+        const formData = new FormData();
+        formData.append("file", image);
+        formData.append("upload_preset", "instagram app clone");
+        formData.append("cloud_name", "instagram app clone");
+
+        fetch("https://api.cloudinary.com/v1_1/instagramappclone/image/upload", {
+        method: "post",
+        body : formData
+        }).then(response => response.json())
+        .then(data => {
+        setImage(data.url);
+        console.log(data);
+        })
+        .catch((error) => console.log(error));
+    }
+
+
+
+    return (
+        <div className='card create-post-container'>
+            <input value={title} onChange={(event)=>setTitle(event.target.value)} type="text" placeholder="Post Title"/>
+            <input value={body} onChange={(event)=>setBody(event.target.value)}  type="text" placeholder="Post Content"/>
+
+            <div className="file-field input-field">
+                <div className="btn #64b5f6 blue lighten-2">
+                    <span>Upload a image</span>
+                    <input value={image} onChange={(event)=> console.log(event.target.files)} type="file" />
+                </div>
+                <div className="file-path-wrapper">
+                    <input className="file-path validate" type="text" />
+                </div>
+            </div>
+
+            <button onClick={()=> submitPost()} className='btn waves-effect waves-light btn-large #64b5f6 blue lighten-2'>Submit Post</button>
+        </div>
+    )
+    }
+
+    export default Createpost
+    -->
+
+
+    setup reducer and context api for state sharing and management - <br>
+    <!--
+    from app.js
+    import {Link, useHistory } from 'react-router-dom';
+import M from 'materialize-css';
+import React, { useState, useContext } from 'react'
+import {UserContext} from '../App';
+
+function Login() {
+
+  const {state, dispatch} = useContext(UserContext);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const history = useHistory();
+
+  const login = () => {
+
+      if(!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)){
+        M.toast({html: "enter a valid email", classes: "#c62828 red darken-3"});
+        return 
+      }
+
+    fetch("/login", {
+      method : "post",
+      headers : {
+        "Content-Type": "application/json"
+      },
+      body : JSON.stringify({
+        email : email,
+        password: password
+      })
+    })
+    .then(response => response.json())
+    .then(function (data) {
+      console.log(data);
+      if(data.error){
+        M.toast({html: data.error, classes: "#c62828 red darken-3"});
+      }
+      else{
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("userInfo", JSON.stringify(data.userInfo));
+
+        // dispatch the action and state to the reducer
+        dispatch({type: "USER", payload: data.userInfo});
+        M.toast({html: "logged in successful", classes: "#388e3c green darken-2"});
+        history.push('/');
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
+
+
+  return (
+    <div className='login-container'>
+        <div className='card login-card input-field'>
+            <h2>Instagram Login</h2>
+            <input type="text" placeholder="Email" value={email} onChange={(event)=>setEmail(event.target.value)}/>
+            <input type="password" placeholder="Password" value={password} onChange={(event)=>setPassword(event.target.value)}/>
+
+            <button onClick={() => login()} class="waves-effect waves-light btn #2979ff blue accent-3">Login</button>
+
+            <h6>
+              <Link to="/signup">Dont't have an account?</Link>
+            </h6>
+        </div>
+    </div>
+  )
+}
+
+export default Login
+
+
+from login.js
+import {Link, useHistory } from 'react-router-dom';
+import M from 'materialize-css';
+import React, { useState, useContext } from 'react'
+import {UserContext} from '../App';
+
+function Login() {
+
+  const {state, dispatch} = useContext(UserContext);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const history = useHistory();
+
+  const login = () => {
+
+      if(!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)){
+        M.toast({html: "enter a valid email", classes: "#c62828 red darken-3"});
+        return 
+      }
+
+    fetch("/login", {
+      method : "post",
+      headers : {
+        "Content-Type": "application/json"
+      },
+      body : JSON.stringify({
+        email : email,
+        password: password
+      })
+    })
+    .then(response => response.json())
+    .then(function (data) {
+      console.log(data);
+      if(data.error){
+        M.toast({html: data.error, classes: "#c62828 red darken-3"});
+      }
+      else{
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("userInfo", JSON.stringify(data.userInfo));
+
+        // dispatch the action and state to the reducer
+        dispatch({type: "USER", payload: data.userInfo});
+        M.toast({html: "logged in successful", classes: "#388e3c green darken-2"});
+        history.push('/');
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
+
+
+  return (
+    <div className='login-container'>
+        <div className='card login-card input-field'>
+            <h2>Instagram Login</h2>
+            <input type="text" placeholder="Email" value={email} onChange={(event)=>setEmail(event.target.value)}/>
+            <input type="password" placeholder="Password" value={password} onChange={(event)=>setPassword(event.target.value)}/>
+
+            <button onClick={() => login()} class="waves-effect waves-light btn #2979ff blue accent-3">Login</button>
+
+            <h6>
+              <Link to="/signup">Dont't have an account?</Link>
+            </h6>
+        </div>
+    </div>
+  )
+}
+
+export default Login
+    -->
+
+
+    Hide and shows menu items based on user logged in or not - <br>
+    <!--
+    from navbar.js
+    import React, {useContext} from 'react';
+import '../App.css';
+import { Link } from 'react-router-dom';
+import {UserContext} from '../App';
+
+const Navbar = () =>{
+
+    const {state, dispatch} = useContext(UserContext);
+    const navList = () => {
+        if(state){// if the user object is present
+            return[
+                <li><Link to="/Add-post">Add Post</Link></li>,
+                <li><Link to="/Profile">Profile</Link></li>
+            ]
+        }
+        else{
+            return[
+                <li><Link to="/Login">Login</Link></li>,
+                <li><Link to="/Signup">Signup</Link></li>
+            ]
+        }
+    }
+
+    return (
+        <nav>
+            <div class="nav-wrapper white">
+            <Link to={state? "/" : "/login"} className="brand-logo">Logo</Link>
+            <ul id="nav-mobile" className="right">
+                {navList()}
+            </ul>
+            </div>
+        </nav>
+    );
+}
+
+export default Navbar;
+    -->
+
+
+    loading home page all posts from backend API - <br>
+    <!--
+        from home.js
+        import React, {useState, useEffect} from 'react'
+import './home.css';
+
+function Home() {
+
+  const [posts, setPosts] = useState([]); // initalize to empty array
+  useEffect(() => {
+
+      fetch("/posts", {
+        method : "get",
+        headers : {
+          "Authorization": "Bearer " + localStorage.getItem("token")
+        }
+      })
+      .then(response => response.json())
+      .then((data) => {
+        console.log(data);
+        setPosts(data.posts);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+  },[]);// We want to led omly once when component is munting/loading thats why an emptyb array is dependicies
+
+  return (
+    <div className='home-container'>
+
+      {
+        posts.map( ()=> {
+          return(
+            <div className='card home-card' key={posts._id}>
+              <h5>{posts.author.fullName}</h5>
+              <div className='card-image'>
+                <img alt='name' src={posts.image}/>
+              </div>
+              <div className='card-content'>
+              <i className="material-icons" style={{color:"red"}}>favorite</i>
+                <h6>{posts.title}</h6>
+                <p>{posts.body}</p>
+                <input type="text" placeholder="Enter your comment" />
+              </div>
+            </div>
+          )
+        })
+      }
+
+    </div>
+  )
+}
+
+export default Home
+    -->
+
+
+    implementing our logout functionality - <br>
+    <!--
+        from userreducer.js
+        export const initialState = null;
+
+    export const reducer = (state, action) =>{
+        if(action.type === "USER"){
+            return action.payload;
+        }
+        if(action.type === "LOGOUT"){
+            return null;
+        }
+        return state;
+    }
+
+
+    from navbar.js
+    const Navbar = () =>{
+
+    const {state, dispatch} = useContext(UserContext);
+    const history = useHistory();
+
+    const logout = () => {
+        localStorage.clear();
+        dispatch({type: "LOGOUT"});
+        history.push('./login');
+    }
+
+
+    const navList = () => {
+        if(state){// if the user object is present
+            return[
+                <li><Link to="/Add-post">Add Post</Link></li>,
+                <li><Link to="/Profile">Profile</Link></li>,
+                <li> <button onClick={()=> logout()} className='btn waves-effect waves-light #64b5f6 blue lighten-2'>Logout</button></li>
+            ]
+        }
+    -->
+
+    fetching profile page and data from backend API - <br>
+    <!--
+    from profile.js
+    import React, {useEffect, useState, useContext} from 'react'
+import './profile.css';
+import {UserContext} from '../App'
+function Profile() {
+
+  const [myposts, setMyPosts] = useState([]);
+  const {state, dispatch} = useContext(UserContext);
+
+
+  useEffect(() => {
+
+      fetch("/myposts", {
+        method : "get",
+        headers : {
+          "Authorization": "Bearer " + localStorage.getItem("token")
+        }
+      })
+      .then(response => response.json())
+      .then((data) => {
+        console.log(data);
+        setMyPosts(data.posts);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+  },[]);
+
+// We want to led omly once when component is munting/loading thats why an emptyb array is dependicies
+  return (
+    <div className='main-container'>
+      <div className='profile-container'>
+        <div>
+          <img src="https://images.unsplash.com/photo-1473830394358-91588751b241?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjF8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" style={{width:"165px", height:"165px",bordeRadius:"50%"}} />
+        </div>
+        <div className='details-section'>
+          <h3>{state? state.fullName: "Loading Name..."}</h3>
+          <div className='following'>
+            <h6>10 posts</h6>
+            <h6>1000 Followers</h6>
+            <h6>1200 Following</h6>
+          </div>
+        </div>
+      </div>
+
+      <div className='all-post'>
+        {
+          myposts.map((post) => {
+            return(
+              <img src={post.image} className='post' alt={post.title} key = {post._id} />
+            )
+          })
+        }
+        
+
+      </div>
+    </div>
+  )
+}
+
+export default Profile
+    -->
+
+    impllementing like post API in Bcaklend - <br>
+    <!--
+    from postRoute.js
+    router.put('/like', protectedRoute, (req,res) => {
+    PostModel.findByIdAndUpdate(req.body.postId, {
+        $push: {likes: req.dbUser._id}
+    } ,{
+        new:  true //return updated data
+    }).exec((error, result) => {
+        if(error){
+            return res.status(400).json({error: error});
+        }
+        else{
+            res.json(result);
+        }
+    })
+})
+
+from postmodel.js
+image:{
+        type:String,
+        required: true   
+    },
+    likes:[
+        {
+            typoe: ObjectId,
+            ref: "UserModel"
+        }
+    ],
+    author:{
+        type: ObjectId,
+        ref: "UserModel"
+    }
+    -->
+
+
+    implementing same for unline posts - <br>
+    <!--
+    from postroute.js
+    router.put('/unlike', protectedRoute, (req,res) => {
+    PostModel.findByIdAndUpdate(req.body.postId, {
+        $pull: {likes: req.dbUser._id}
+    } ,{
+        new:  true //return updated data
+    }).exec((error, result) => {
+        if(error){
+            return res.status(400).json({error: error});
+        }
+        else{
+            res.json(result);
+        }
+    })
+})
+    -->
+
+    implementing like and unlike functionality on frontend - <br>
+    <!--
+    from home.js
+
+    import React, {useState, useEffect} from 'react'
+import './home.css';
+
+function Home() {
+
+  const [posts, setPosts] = useState([]); // initalize to empty array
+  useEffect(() => {
+
+      fetch("/posts", {
+        method : "get",
+        headers : {
+          "Authorization": "Bearer " + localStorage.getItem("token")
+        }
+      })
+      .then(response => response.json())
+      .then((data) => {
+        console.log(data);
+        setPosts(data.posts);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+  },[]);// We want to led omly once when component is munting/loading thats why an emptyb array is dependicies
+
+
+  const likeUnlike = (postId, url) => {
+    fetch(url, {
+      method : "put",
+      headers : {
+        "Authorization": "Bearer " + localStorage.getItem("token")
+      },
+      body: JSON.stringify({postId: postId})
+    })
+    .then(response => response.json())
+    .then(function (updatedPost) {
+      console.log(updatedPost);
+      const newPostArr = posts.map((oldPost) => {
+        if(oldPost._id === updatedPost._id){
+          return updatedPost;
+        }
+        else{
+          return oldPost;
+        }
+      });
+      setPosts(newPostArr);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
+  return (
+    <div className='home-container'>
+
+      {
+        posts.map( ()=> {
+          return(
+            <div className='card home-card' key={posts._id}>
+              <h5>{posts.author.fullName}</h5>
+              <div className='card-image'>
+                <img alt='name' src={posts.image}/>
+              </div>
+              <div className='card-content'>
+              <i className="material-icons" style={{color:"red", marginRight: "8px"}}>favourite</i>
+              <i onClick={()=> likeUnlike(posts._id, '/like')} className="material-icons" style={{color:"blue", marginRight: "8px",  cursor: "pointer"}}>thumb_up</i>
+              <i  onClick={()=> likeUnlike(posts._id, '/unlike')} className="material-icons" style={{color:"red", marginRight: "8px",  cursor: "pointer"}}>thumb_down</i>
+              <h6>{posts.likes.length}Likes</h6>
+                <h6>{posts.title}</h6>
+                <p>{posts.body}</p>
+                <input type="text" placeholder="Enter your comment" />
+              </div>
+            </div>
+          )
+        })
+      }
+
+    </div>
+  )
+}
+
+export default Home
+    -->
+
+
+    restricting u8ser to like and unlike only once per post - <br>
+    <!--
+    from home.js
+    import React, {useState, useEffect, useContext} from 'react'
+import './home.css';
+import {UserContext} from '../App';
+
+function Home() {
+
+  const [posts, setPosts] = useState([]); // initalize to empty array
+  const {state, dispatch} = useContext(UserContext);
+
+
+  useEffect(() => {
+
+      fetch("/posts", {
+        method : "get",
+        headers : {
+          "Authorization": "Bearer " + localStorage.getItem("token")
+        }
+      })
+      .then(response => response.json())
+      .then((data) => {
+        console.log(data);
+        setPosts(data.posts);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+  },[]);// We want to led omly once when component is munting/loading thats why an emptyb array is dependicies
+
+
+  const likeUnlike = (postId, url) => {
+    fetch(url, {
+      method : "put",
+      headers : {
+        "Authorization": "Bearer " + localStorage.getItem("token")
+      },
+      body: JSON.stringify({postId: postId})
+    })
+    .then(response => response.json())
+    .then(function (updatedPost) {
+      console.log(updatedPost);
+      const newPostArr = posts.map((oldPost) => {
+        if(oldPost._id === updatedPost._id){
+          return updatedPost;
+        }
+        else{
+          return oldPost;
+        }
+      });
+      setPosts(newPostArr);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
+  return (
+    <div className='home-container'>
+
+      {
+        posts.map( (post)=> {
+          return(
+            <div className='card home-card' key={post._id}>
+              <h5>{post.author.fullName}</h5>
+              <div className='card-image'>
+                <img alt='name' src={post.image}/>
+              </div>
+              <div className='card-content'>
+              <i className="material-icons" style={{color:"red", marginRight: "8px"}}>favourite</i>
+              {
+                post.likes.includes(state._id)
+                ?<i  onClick={()=> likeUnlike(post._id, '/unlike')} className="material-icons" style={{color:"red", marginRight: "8px",  cursor: "pointer"}}>thumb_down</i>
+                //for user present
+                :<i onClick={()=> likeUnlike(post._id, '/like')} className="material-icons" style={{color:"blue", marginRight: "8px",  cursor: "pointer"}}>thumb_up</i>
+                //for not user is present
+              }
+              
+              <h6>{post.likes.length}Likes</h6>
+                <h6>{post.title}</h6>
+                <p>{post.body}</p>
+                <input type="text" placeholder="Enter your comment" />
+              </div>
+            </div>
+          )
+        })
+      }
+
+    </div>
+  )
+}
+
+export default Home
+    -->
+
+    implementing comment section in backend - <br>
+    <!--
+    from  postmodel.js
+    comments:[
+        {
+            commentText: String,
+            commentedBy: { type: ObjectId, ref : "UserModel"}
+        }
+    ],
+    author:{
+        type: ObjectId,
+        ref: "UserModel"
+    }
+});
+
+
+from postroute.js
+const express = require('express');
+const router = express.Router();
+const mongoose = require('mongoose');
+const protectedresource = require('../middleware/protectedresource');
+const protectedRoute = require('../middleware/protectedresource');
+const PostModel = mongoose.model("PostModel");
+
+
+router.get('/posts',protectedresource, (req,res)=>{
+    PostModel.find()
+    .populate("author")
+    .then((dbPosts)=>{
+        res.status(200).json({posts: dbPosts});
+    })
+    .catch((error) => {
+        console.log(error);
+    });
+});
+
+router.get('/myposts',protectedRoute, (req,res)=>{
+    PostModel.find({author: req.dbUser._id})
+    .populate("author")
+    .then((dbPosts)=>{
+        res.status(200).json({posts: dbPosts});
+    })
+    .catch((error) => {
+        console.log(error);
+    });
+});
+
+
+router.post('./createpost',protectedresource ,(req,res) =>{
+    const {title,body, image} = req.body;
+
+    if(!title || !body || !image){
+        return res.status(400).json({error: "one or more mandatory feild is required"});
+    }
+    // console.log(req.dbUser);
+    // res.send("Done");
+    req.dbUser.password = undefined;
+
+    const post = new PostModel({title,body,image: image, author: req.dbUser});
+
+    post.save()
+    .then((dbPost)=>{
+        res.status(201).json({post: dbPost});
+    })
+    .catch((error) => {
+        console.log(error);
+    });
+})
+
+router.put('/like', protectedRoute, (req,res) => {
+    PostModel.findByIdAndUpdate(req.body.postId, {
+        $push: {likes: req.dbUser._id}
+    } ,{
+        new:  true //return updated data
+    }).exec((error, result) => {
+        if(error){
+            return res.status(400).json({error: error});
+        }
+        else{
+            res.json(result);
+        }
+    })
+})
+
+
+router.put('/unlike', protectedRoute, (req,res) => {
+    PostModel.findByIdAndUpdate(req.body.postId, {
+        $pull: {likes: req.dbUser._id}
+    } ,{
+        new:  true //return updated data
+    }).exec((error, result) => {
+        if(error){
+            return res.status(400).json({error: error});
+        }
+        else{
+            res.json(result);
+        }
+    })
+})
+
+
+router.put('/comment', protectedRoute, (req,res) => {
+
+    const comment = {
+        commentText : req.body.commentText,
+        commentedBy : req.dbUser._id
+    };
+
+
+    PostModel.findByIdAndUpdate(req.body.postId, {
+        $pull: {comments: comment}
+    } ,{
+        new:  true //return updated data
+    })
+    .populate("comments.commentedBy" , "_id fullName")
+    .exec((error, result) => {
+        if(error){
+            return res.status(400).json({error: error});
+        }
+        else{
+            res.json(result);
+        }
+    })
+})
+
+module.exports = router;
+    -->
+
+    integrate frontend with backednd API - <br>
+    <!--
+    from postroute.js
+    const express = require('express');
+const router = express.Router();
+const mongoose = require('mongoose');
+const protectedresource = require('../middleware/protectedresource');
+const protectedRoute = require('../middleware/protectedresource');
+const PostModel = mongoose.model("PostModel");
+
+
+router.get('/posts',protectedresource, (req,res)=>{
+    PostModel.find()
+    .populate("author")
+    .then((dbPosts)=>{
+        res.status(200).json({posts: dbPosts});
+    })
+    .catch((error) => {
+        console.log(error);
+    });
+});
+
+router.get('/myposts',protectedRoute, (req,res)=>{
+    PostModel.find({author: req.dbUser._id})
+    .populate("author")
+    .then((dbPosts)=>{
+        res.status(200).json({posts: dbPosts});
+    })
+    .catch((error) => {
+        console.log(error);
+    });
+});
+
+
+router.post('./createpost',protectedresource ,(req,res) =>{
+    const {title,body, image} = req.body;
+
+    if(!title || !body || !image){
+        return res.status(400).json({error: "one or more mandatory feild is required"});
+    }
+    // console.log(req.dbUser);
+    // res.send("Done");
+    req.dbUser.password = undefined;
+
+    const post = new PostModel({title,body,image: image, author: req.dbUser});
+
+    post.save()
+    .then((dbPost)=>{
+        res.status(201).json({post: dbPost});
+    })
+    .catch((error) => {
+        console.log(error);
+    });
+})
+
+router.put('/like', protectedRoute, (req,res) => {
+    PostModel.findByIdAndUpdate(req.body.postId, {
+        $push: {likes: req.dbUser._id}
+    } ,{
+        new:  true //return updated data
+    }).exec((error, result) => {
+        if(error){
+            return res.status(400).json({error: error});
+        }
+        else{
+            res.json(result);
+        }
+    })
+})
+
+
+router.put('/unlike', protectedRoute, (req,res) => {
+    PostModel.findByIdAndUpdate(req.body.postId, {
+        $pull: {likes: req.dbUser._id}
+    } ,{
+        new:  true //return updated data
+    }).exec((error, result) => {
+        if(error){
+            return res.status(400).json({error: error});
+        }
+        else{
+            res.json(result);
+        }
+    })
+})
+
+
+router.put('/comment', protectedRoute, (req,res) => {
+
+    const comment = {
+        commentText : req.body.commentText,
+        commentedBy : req.dbUser._id
+    };
+
+
+    PostModel.findByIdAndUpdate(req.body.postId, {
+        $push: {comments: comment}
+    } ,{
+        new:  true //return updated data
+    })
+    .populate("comments.commentedBy" , "_id fullName")
+    .exec((error, result) => {
+        if(error){
+            return res.status(400).json({error: error});
+        }
+        else{
+            res.json(result);
+        }
+    })
+})
+
+module.exports = router;
+
+
+
+from home.js
+  const submitComment = (postId, event) => {
+
+    event.preventDefault(); // to avoid to page refresh again and again
+
+    const commentText = event.target[0].value;
+    debugger;
+
+    fetch("/comment", {
+      method : "put",
+      headers : {
+        "Authorization": "Bearer " + localStorage.getItem("token")
+      },
+      body: JSON.stringify({commentText : commentText, postId : postId})
+    })
+    .then(response => response.json())
+    .then(function (updatedPost) {
+      console.log(updatedPost);
+      const newPostArr = posts.map((oldPost) => {
+        if(oldPost._id === updatedPost._id){
+          return updatedPost;
+        }
+        else{
+          return oldPost;
+        }
+      });
+      setPosts(newPostArr);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
+
+
+
+
+  return (
+    <div className='home-container'>
+    -->
+
+
+    showing commments on frontend - <br>
+    <!--
+        from home.js
+        import React, {useState, useEffect, useContext} from 'react'
+import './home.css';
+import {UserContext} from '../App';
+
+function Home() {
+
+  const [posts, setPosts] = useState([]); // initalize to empty array
+  const {state, dispatch} = useContext(UserContext);
+
+
+  useEffect(() => {
+
+      fetch("/posts", {
+        method : "get",
+        headers : {
+          "Authorization": "Bearer " + localStorage.getItem("token")
+        }
+      })
+      .then(response => response.json())
+      .then((data) => {
+        console.log(data);
+        setPosts(data.posts);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+  },[]);// We want to led omly once when component is munting/loading thats why an emptyb array is dependicies
+
+
+  const likeUnlike = (postId, url) => {
+    fetch(url, {
+      method : "put",
+      headers : {
+        "Authorization": "Bearer " + localStorage.getItem("token")
+      },
+      body: JSON.stringify({postId: postId})
+    })
+    .then(response => response.json())
+    .then(function (updatedPost) {
+      console.log(updatedPost);
+      const newPostArr = posts.map((oldPost) => {
+        if(oldPost._id === updatedPost._id){
+          return updatedPost;
+        }
+        else{
+          return oldPost;
+        }
+      });
+      setPosts(newPostArr);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
+
+
+
+
+  const submitComment = (postId, event) => {
+
+    event.preventDefault(); // to avoid to page refresh again and again
+
+    const commentText = event.target[0].value;
+
+    fetch("/comment", {
+      method : "put",
+      headers : {
+        "Authorization": "Bearer " + localStorage.getItem("token")
+      },
+      body: JSON.stringify({commentText : commentText, postId : postId})
+    })
+    .then(response => response.json())
+    .then(function (updatedPost) {
+      console.log(updatedPost);
+      const newPostArr = posts.map((oldPost) => {
+        if(oldPost._id === updatedPost._id){
+          return updatedPost;
+        }
+        else{
+          return oldPost;
+        }
+      });
+      setPosts(newPostArr);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
+
+
+
+
+  return (
+    <div className='home-container'>
+
+      {
+        posts.map( (post)=> {
+          return(
+            <div className='card home-card' key={post._id}>
+              <h5>{post.author.fullName}</h5>
+              <div className='card-image'>
+                <img alt='name' src={post.image}/>
+              </div>
+              <div className='card-content'>
+              <i className="material-icons" style={{color:"red", marginRight: "8px"}}>favourite</i>
+              {
+                post.likes.includes(state._id)
+                ?<i  onClick={()=> likeUnlike(post._id, '/unlike')} className="material-icons" style={{color:"red", marginRight: "8px",  cursor: "pointer"}}>thumb_down</i>
+                //for user present
+                :<i onClick={()=> likeUnlike(post._id, '/like')} className="material-icons" style={{color:"blue", marginRight: "8px",  cursor: "pointer"}}>thumb_up</i>
+                //for not user is present
+              }
+              
+              <h6>{post.likes.length}Likes</h6>
+                <h6>{post.title}</h6>
+                <p>{post.body}</p>
+                
+                {
+                  post.comments.length > 0
+                  ?<h6 style={{fontWeight: "600"}}>All Comments</h6>
+                  : ""
+                }
+
+                {
+                  post.comments.map((comment) => {
+                    return(
+                      <h6 key={post._id}>
+                        <span style={{fontWeight: "400"}}>{comment.commentedBy.fullName}</span>
+                        <span>{comment.commentText}</span>
+                      </h6>
+                    )
+                  })
+                }
+
+                <form onSubmit={(event) => {submitComment(event, post._id)}}>
+                  <input type="text" placeholder="Enter your comment" />
+                </form>
+
+              </div>
+            </div>
+          )
+        })
+      }
+
+    </div>
+  )
+}
+
+export default Home
+    -->
+
+
+    API for deleting a post - <br>
+    <!--
+    from postroute.js
+    router.delete("/deletepost/:postId", protectedRoute, (req,res) => {
+    PostModel.findOne({_id: req.param.postId})
+    .populate("author", "_id")
+    .exec((error,post) => {
+        if(error){
+            return res.status(400).json({error: error});
+        }
+        //CHECKING IF the post user is same as logged in user
+        if(post.author._id.toString() === req.dbUser._id.toString()){
+            post.remove()
+            .then( (data) => {
+                res.json({result: "Post deleted successfully"})
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+        }
+    })
+});
+
+module.exports = router;
+    -->
+
+    integrating frontend with bacvkend delete post API - <br>
+    <!--
+    from home.js
+    import React, {useState, useEffect, useContext} from 'react'
+import './home.css';
+import {UserContext} from '../App';
+
+function Home() {
+
+  const [posts, setPosts] = useState([]); // initalize to empty array
+  const {state, dispatch} = useContext(UserContext);
+
+
+  useEffect(() => {
+
+      fetch("/posts", {
+        method : "get",
+        headers : {
+          "Authorization": "Bearer " + localStorage.getItem("token")
+        }
+      })
+      .then(response => response.json())
+      .then((data) => {
+        console.log(data);
+        setPosts(data.posts);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+  },[]);// We want to led omly once when component is munting/loading thats why an emptyb array is dependicies
+
+
+  const likeUnlike = (postId, url) => {
+    fetch(url, {
+      method : "put",
+      headers : {
+        "Authorization": "Bearer " + localStorage.getItem("token")
+      },
+      body: JSON.stringify({postId: postId})
+    })
+    .then(response => response.json())
+    .then(function (updatedPost) {
+      console.log(updatedPost);
+      const newPostArr = posts.map((oldPost) => {
+        if(oldPost._id === updatedPost._id){
+          return updatedPost;
+        }
+        else{
+          return oldPost;
+        }
+      });
+      setPosts(newPostArr);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
+
+
+
+  const deletePost = (postId) => {
+
+
+    fetch(`/deletepost/${postId}`, {
+      method : "delete",
+      headers : {
+        "Authorization": "Bearer " + localStorage.getItem("token")
+      }
+    })
+    .then(response => response.json())
+    .then(function (deletedPost) {
+      console.log(deletedPost);
+      const newPostArr = posts.filter((oldPost) => {
+        return (oldPost._id !== deletedPost.result._id)
+      });
+      setPosts(newPostArr);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+
+  }
+
+
+
+
+  const submitComment = (postId, event) => {
+
+    event.preventDefault(); // to avoid to page refresh again and again
+
+    const commentText = event.target[0].value;
+
+    fetch("/comment", {
+      method : "put",
+      headers : {
+        "Authorization": "Bearer " + localStorage.getItem("token")
+      },
+      body: JSON.stringify({commentText : commentText, postId : postId})
+    })
+    .then(response => response.json())
+    .then(function (updatedPost) {
+      console.log(updatedPost);
+      const newPostArr = posts.map((oldPost) => {
+        if(oldPost._id === updatedPost._id){
+          return updatedPost;
+        }
+        else{
+          return oldPost;
+        }
+      });
+      setPosts(newPostArr);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
+
+
+
+
+  return (
+    <div className='home-container'>
+
+      {
+        posts.map( (post)=> {
+          return(
+            <div className='card home-card' key={post._id}>
+              <h5>
+                {post.author.fullName}
+                { post.author._id === state._id && <i onClick={() => deletePost(post._id)} style={{cursor: "pointer", color: "red", float: "right" , fontSize: "35px"}} className='material-icons'>delete_forever</i> }
+              </h5>
+              <div className='card-image'>
+                <img alt='name' src={post.image}/>
+              </div>
+              <div className='card-content'>
+              <i className="material-icons" style={{color:"red", marginRight: "8px"}}>favourite</i>
+              {
+                post.likes.includes(state._id)
+                ?<i  onClick={()=> likeUnlike(post._id, '/unlike')} className="material-icons" style={{color:"red", marginRight: "8px",  cursor: "pointer"}}>thumb_down</i>
+                //for user present
+                :<i onClick={()=> likeUnlike(post._id, '/like')} className="material-icons" style={{color:"blue", marginRight: "8px",  cursor: "pointer"}}>thumb_up</i>
+                //for not user is present
+              }
+              
+              <h6>{post.likes.length}Likes</h6>
+                <h6>{post.title}</h6>
+                <p>{post.body}</p>
+                
+                {
+                  post.comments.length > 0
+                  ?<h6 style={{fontWeight: "600"}}>All Comments</h6>
+                  : ""
+                }
+
+                {
+                  post.comments.map((comment) => {
+                    return(
+                      <h6 key={post._id}>
+                        <span style={{fontWeight: "400"}}>{comment.commentedBy.fullName}</span>
+                        <span>{comment.commentText}</span>
+                      </h6>
+                    )
+                  })
+                }
+
+                <form onSubmit={(event) => {submitComment(event, post._id)}}>
+                  <input type="text" placeholder="Enter your comment" />
+                </form>
+
+              </div>
+            </div>
+          )
+        })
+      }
+
+    </div>
+  )
+}
+
+export default Home
+
+
+like and unlike just maki it populate changes
+    -->
+
+
+    api for seeing post from different user - <br>
+    <!--
+
+    from userRoute.js
+    const express = require('express');
+    const router = express.Router();
+    const mongoose = require('mongoose');
+    const protectedresource = require('../middleware/protectedresource');
+    const protectedRoute = require('../middleware/protectedresource');
+    const PostModel = mongoose.model("PostModel");
+    const UserModel = mongoose.model("UserModel");
+
+
+    // endpoint to get user details of another user(not the loggedin user) along with their posts
+    router.get('/user/:userId', (req,res) => {
+        UserModel.findOne({_id: req.params.userId})
+        .select("-password") // fetch everything except the password
+        .then((userFound) => {
+            //fetch all posts of this found user
+            PostModel.find({author: req.params.userId})
+            .populate("author", "_id fullName")
+            .exec((error, allPosts) => {
+                if(error){
+                    return res.status(400).json({error: error});
+                }
+                res.json({user: userFound, posts: allPosts})
+            })
+        })
+        .catch((error) => {
+            return res.status(400).json({error: "User is not found!"})
+        });
+    })
+
+
+    module.exports = router;
+    -->
+
+    Frontend for other User profile - <br>
+    <!--
+    from userOtherProfile.js
+    import React, {useEffect, useState, useContext} from 'react'
+import './profile.css';
+import {UserContext} from '../App'
+import {useParams, UseParams}  from 'react-router-dom';
+
+function OtherUserProfile() {
+
+  const [userProfile, setUserProfile] = useState();
+  const {state, dispatch} = useContext(UserContext);
+
+  const {userId} = useParams()
+  console.log(userId);
+
+
+  useEffect(() => {
+
+      fetch(`/user/${userId}`, {
+        method : "get",
+        headers : {
+          "Authorization": "Bearer " + localStorage.getItem("token")
+        }
+      })
+      .then(response => response.json())
+      .then((data) => {
+        console.log(data);
+        setUserProfile(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+  },[]);// We want to led omly once when component is munting/loading thats why an emptyb array is dependicies
+
+
+
+  return (
+
+    <>
+        {
+            userProfile
+            ?<div className='main-container'>
+            <div className='profile-container'>
+              <div>
+                <img alt='jhgky' src="https://images.unsplash.com/photo-1473830394358-91588751b241?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjF8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" style={{width:"165px", height:"165px",bordeRadius:"50%"}} />
+              </div>
+              <div className='details-section'>
+                <h3>{userProfile.user.fullName}</h3>
+                <h5>{userProfile.user.email}</h5>
+                <div className='following'>
+                  <h6>{userProfile.posts.length}</h6>
+                  <h6>1000 Followers</h6>
+                  <h6>1200 Following</h6>
+                </div>
+              </div>
+            </div>
+      
+            <div className='all-post'>
+              {
+                userProfile.posts.map((post) => {
+                  return(
+                    <img src={post.image} className='post' alt={post.title} key = {post._id} />
+                  )
+                })
+              }
+              
+      
+            </div>
+          </div>
+            :<h3>Loading...</h3>
+        }
+    </>
+
+  )
+}
+
+export default OtherUserProfile
+
+
+
+
+fro0m app.js
+<Route path="/Profile/:userId">
+          <OtherUserProfile/>
+        </Route>
+        <Route path="/Profile">
+          <Profile/>
+        </Route>
+    -->
+
+
+    Navigate to other user profile page - <br>
+    <!--
+    from home.js
+
+    return (
+    <div className='home-container'>
+
+      {
+        posts.map( (post)=> {
+          return(
+            <div className='card home-card' key={post._id}>
+              <h5>
+                <Link to={post.author._id !== state._id ?"/profile/" + post.author._id   :"/profile"}>{post.author.fullName}</Link>
+
+
+                { post.author._id === state._id && <i onClick={() => deletePost(post._id)} style={{cursor: "pointer", color: "red", float: "right" , fontSize: "35px"}} className='material-icons'>delete_forever</i> }
+              </h5>
+    -->
+
+
+    Create Follow and Unfollow button - <br>
+    <!--
+        from userModel.js
+         password:{
+        type:String,
+        required: true   
+    },
+    followers: [{type: ObjectId, ref: "UserModel"}],
+    following: [{type: ObjectId, ref: "UserModel"}]
+
+
+    from userroute.js
+    const express = require('express');
+const router = express.Router();
+const mongoose = require('mongoose');
+const protectedresource = require('../middleware/protectedresource');
+const protectedRoute = require('../middleware/protectedresource');
+const PostModel = mongoose.model("PostModel");
+const UserModel = mongoose.model("UserModel");
+
+
+// endpoint to get user details of another user(not the loggedin user) along with their posts
+router.get('/user/:userId',protectedresource, (req,res) => {
+    UserModel.findOne({_id: req.params.userId})
+    .select("-password") // fetch everything except the password
+    .then((userFound) => {
+        //fetch all posts of this found user
+        PostModel.find({author: req.params.userId})
+        .populate("author", "_id fullName")
+        .exec((error, allPosts) => {
+            if(error){
+                return res.status(400).json({error: error});
+            }
+            res.json({user: userFound, posts: allPosts})
+        })
+    })
+    .catch((error) => {
+        return res.status(400).json({error: "User is not found!"})
+    });
+})
+
+router.put(('/follow'), protectedRoute, (req,res) => {
+    //sceaniro: logged in user is trying to follow a non-logged in User
+    // req.body.followId = userid OF NOT LOGGEDIN uSER
+    UserModel.findByIdAndUpdate((req.body.followId),{
+        $push: {followers: req.dbUser._id} //push the userId of logged in user
+    },{
+        new: true
+    },(error, result)=> {
+        if(error){
+            return res.status(400).json({error: error})
+        }
+
+         // req.body.followId = userid is LOGGEDIN uSER
+        UserModel.findByIdAndUpdate(req.dbUser._id, {
+            $push: {following: req.body.followId} //push the userId of not  logged in user
+        }, 
+        {new:true})
+        .then(result => res.json(result))
+        .catch((error) => {
+            return res.status(400).json({error: error})
+        });
+    })
+});
+
+
+router.put(('/unfollow'), protectedRoute, (req,res) => {
+    //sceaniro: logged in user is trying to follow a non-logged in User
+    // req.body.followId = userid OF NOT LOGGEDIN uSER
+    UserModel.findByIdAndUpdate((req.body.unfollowId),{
+        $pull: {followers: req.dbUser._id} //push the userId of logged in user
+    },{
+        new: true
+    },(error, result)=> {
+        if(error){
+            return res.status(400).json({error: error})
+        }
+
+         // req.body.followId = userid is LOGGEDIN uSER
+        UserModel.findByIdAndUpdate(req.dbUser._id, {
+            $pull: {following: req.body.unfollowId} //push the userId of not  logged in user
+        }, 
+        {new:true})
+        .then(result => res.json(result))
+        .catch((error) => {
+            return res.status(400).json({error: error})
+        });
+    })
+});
+
+
+module.exports = router;
+    -->
+
+
+    frontend changes for follow - <br>
+    <!--
+        otherUserProfile.js
+        userProfile
+        ?<div className='main-container'>
+        <div className='profile-container'>
+            <div>
+            <img alt='jhgky' src="https://images.unsplash.com/photo-1473830394358-91588751b241?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjF8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" style={{width:"165px", height:"165px",bordeRadius:"50%"}} />
+            </div>
+            <div className='details-section'>
+            <h3>{userProfile.user.fullName}</h3>
+            <h5>{userProfile.user.email}</h5>
+            <div className='following'>
+                <h6>{userProfile.posts.length}</h6>
+                <h6>1000 Followers</h6>
+                <h6>1200 Following</h6>
+            </div>
+            <button onClick={()=> follow()} className='btn waves-effect waves-light #0d47a1 blue darken-4'>
+                Follow
+            </button>
+            </div>
+        </div>
+    -->
+
+
+    Updating localStorage with following information - <br>
+    <!--
+    from other User profile.js
+    import React, {useEffect, useState, useContext} from 'react'
+import './profile.css';
+import {UserContext} from '../App'
+import {useParams}  from 'react-router-dom';
+
+function OtherUserProfile() {
+
+  const [userProfile, setUserProfile] = useState();
+  const {state, dispatch} = useContext(UserContext);
+
+  const {userId} = useParams()
+  console.log(userId);
+
+
+  useEffect(() => {
+
+      fetch(`/user/${userId}`, {
+        method : "get",
+        headers : {
+          "Authorization": "Bearer " + localStorage.getItem("token")
+        }
+      })
+      .then(response => response.json())
+      .then((data) => {
+        console.log(data);
+        setUserProfile(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+  },[]);// We want to led omly once when component is munting/loading thats why an emptyb array is dependicies
+
+
+
+  const follow = () => {
+    fetch('/follow', {
+      method : "put",
+      headers : {
+        "Authorization": "Bearer " + localStorage.getItem("token")
+      },
+      body: JSON.stringify({followId: userId})
+    })
+    .then(response => response.json())
+    .then(function (updatedUser) {
+      console.log(updatedUser);
+      dispatch({type: "UPDATE", payload: {followers: updatedUser.followers,  following: updatedUser.following}})
+      localStorage.setItem("userInfo", JSON.stringify(updatedUser))
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
+
+
+
+  return (
+
+    <>
+        {
+            userProfile
+            ?<div className='main-container'>
+            <div className='profile-container'>
+              <div>
+                <img alt='jhgky' src="https://images.unsplash.com/photo-1473830394358-91588751b241?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjF8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" style={{width:"165px", height:"165px",bordeRadius:"50%"}} />
+              </div>
+              <div className='details-section'>
+                <h3>{userProfile.user.fullName}</h3>
+                <h5>{userProfile.user.email}</h5>
+                <div className='following'>
+                  <h6>{userProfile.posts.length}</h6>
+                  <h6>{userProfile.user.followers.length} Followers</h6>
+                  <h6>{userProfile.user.following.length} Following</h6>
+                </div>
+                <button onClick={()=> follow()} className='btn waves-effect waves-light #0d47a1 blue darken-4'>
+                  Follow
+                </button>
+              </div>
+            </div>
+      
+            <div className='all-post'>
+              {
+                userProfile.posts.map((post) => {
+                  return(
+                    <img src={post.image} className='post' alt={post.title} key = {post._id} />
+                  )
+                })
+              }
+              
+      
+            </div>
+          </div>
+            :<h3>Loading...</h3>
+        }
+    </>
+
+  )
+}
+
+export default OtherUserProfile
+
+
+
+
+from userReducer.js
+export const initialState = null;
+
+export const reducer = (state, action) =>{
+    if(action.type === "USER"){
+        return action.payload;
+    }
+    if(action.type === "LOGOUT"){
+        return null;
+    }
+    if(action.type === "UPDATE"){
+        return {
+            ...state, // ecpand what we currently have in state
+            following: action.payload.following,
+            followers: action.payload.followers
+        }
+    }
+    return state;
+}
+    -->
+
+
+    Updating frontend with following info - 
+    <!--
+        from userotherprrofile.js
+        const follow = () => {
+    fetch('/follow', {
+      method : "put",
+      headers : {
+        "Authorization": "Bearer " + localStorage.getItem("token")
+      },
+      body: JSON.stringify({followId: userId})
+    })
+    .then(response => response.json())
+    .then(function (updatedUser) {
+      console.log(updatedUser);
+      dispatch({type: "UPDATE", payload: {followers: updatedUser.followers,  following: updatedUser.following}})
+      localStorage.setItem("userInfo", JSON.stringify(updatedUser))
+
+
+      setUserProfile((prevState) => {
+        return{
+          ...prevState, //expanding the current state
+          user: {
+            ...prevState.user,
+            followers: [...prevState.user.followers, updatedUser._id] //updating the followers count by adding into the followers list of other
+          }
+        }
+      })
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
+    -->
+
+
+    Implementing Unfolow login on frontend - <br>
+    <!--
+        from otheruserprofile.js
+        import React, {useEffect, useState, useContext} from 'react'
+import './profile.css';
+import {UserContext} from '../App'
+import {useParams}  from 'react-router-dom';
+
+function OtherUserProfile() {
+
+  const [userProfile, setUserProfile] = useState();
+  const {state, dispatch} = useContext(UserContext);
+
+  const {userId} = useParams()
+
+  const {showFollow, setshowFollow} = useState(true);
+  console.log(userId);
+
+
+  useEffect(() => {
+
+      fetch(`/user/${userId}`, {
+        method : "get",
+        headers : {
+          "Authorization": "Bearer " + localStorage.getItem("token")
+        }
+      })
+      .then(response => response.json())
+      .then((data) => {
+        console.log(data);
+        setUserProfile(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+  },[]);// We want to led omly once when component is munting/loading thats why an emptyb array is dependicies
+
+
+
+  const follow = () => {
+    fetch('/follow', {
+      method : "put",
+      headers : {
+        "Authorization": "Bearer " + localStorage.getItem("token")
+      },
+      body: JSON.stringify({followId: userId})
+    })
+    .then(response => response.json())
+    .then(function (updatedUser) {
+      console.log(updatedUser);
+      dispatch({type: "UPDATE", payload: {followers: updatedUser.followers,  following: updatedUser.following}})
+      localStorage.setItem("userInfo", JSON.stringify(updatedUser))
+
+
+      setUserProfile((prevState) => {
+        return{
+          ...prevState, //expanding the current state
+          user: {
+            ...prevState.user,
+            followers: [...prevState.user.followers, updatedUser._id] //updating the followers count by adding into the followers list of other
+          }
+        }
+      })
+      setshowFollow(false);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
+
+
+
+  const unfollow = () => {
+    fetch('/unfollow', {
+      method : "put",
+      headers : {
+        "Authorization": "Bearer " + localStorage.getItem("token")
+      },
+      body: JSON.stringify({unfollowId: userId})
+    })
+    .then(response => response.json())
+    .then(function (updatedUser) {
+      console.log(updatedUser);
+      dispatch({type: "UPDATE", payload: {followers: updatedUser.followers,  following: updatedUser.following}})
+      localStorage.setItem("userInfo", JSON.stringify(updatedUser))
+
+
+      setUserProfile((prevState) => {
+        const updatedFollowers = prevState.user.folowers.filter(uid => uid !== updatedUser._id)
+        return{
+          ...prevState, //expanding the current state
+          user: {
+            ...prevState.user,
+            followers: updatedFollowers //updating the followers count by removing into the followers list of other
+          }
+        }
+      })
+      setshowFollow(true);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
+
+
+  return (
+
+    <>
+        {
+            userProfile
+            ?<div className='main-container'>
+            <div className='profile-container'>
+              <div>
+                <img alt='jhgky' src="https://images.unsplash.com/photo-1473830394358-91588751b241?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjF8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" style={{width:"165px", height:"165px",bordeRadius:"50%"}} />
+              </div>
+              <div className='details-section'>
+                <h3>{userProfile.user.fullName}</h3>
+                <h5>{userProfile.user.email}</h5>
+                <div className='following'>
+                  <h6>{userProfile.posts.length}</h6>
+                  <h6>{userProfile.user.followers.length} Followers</h6>
+                  <h6>{userProfile.user.following.length} Following</h6>
+                </div>
+                {
+                  showFollow
+                  ?<button style={{margin:"10px"}} onClick={()=> follow()} className='btn waves-effect waves-light #0d47a1 blue darken-4'>
+                    Follow
+                  </button>
+
+                  :<button style={{margin:"10px"}} onClick={()=> unfollow()} className='btn waves-effect waves-light #0d47a1 blue darken-4'>
+                    UnFollow
+                  </button>
+                }
+
+              </div>
+            </div>
+      
+            <div className='all-post'>
+              {
+                userProfile.posts.map((post) => {
+                  return(
+                    <img src={post.image} className='post' alt={post.title} key = {post._id} />
+                  )
+                })
+              }
+              
+      
+            </div>
+          </div>
+            :<h3>Loading...</h3>
+        }
+    </>
+
+  )
+}
+
+export default OtherUserProfile
+    -->
+
+
+    make the user profile more dynamic - <br>
+    <!--
+    from profile.js
+    return (
+    <div className='main-container'>
+      <div className='profile-container'>
+        <div>
+          <img alt='hass' src="https://images.unsplash.com/photo-1473830394358-91588751b241?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjF8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" style={{width:"165px", height:"165px",bordeRadius:"50%"}} />
+        </div>
+        <div className='details-section'>
+          <h3>{state ? state.fullName: "Loading Name..."}</h3>
+          {console.log('state', state)}
+          <div className='following'>
+            <h6>{myposts.length}</h6>
+            <h6>{state && state.hasOwnProperty('followers')? state.followers.length: 0} Followers</h6>
+            <h6>{state && state.hasOwnProperty('following')? state.following.length: 0} Following</h6>
+          </div>
+        </div>
+      </div>
+
+      <div className='all-post'>
+        {
+          myposts.map((post) => {
+            return(
+              <img src={post.image} className='post' alt={post.title} key = {post._id} />
+            )
+          })
+    -->
+
+
+    showing extra info on user profile page - <br>
+    <!--
+        from profile.js
+        <div className='details-section'>
+          <h3>{state ? state.fullName: "Loading Name..."}</h3>
+          <h5>{state ? state.email: "Loading Name..."}</h5>
+          {console.log('state', state)}
+          <div className='following'>
+            <h6>{myposts.length}</h6>
+    -->
+
+    API for post from my followers - <br>
+    <!--
+        from postRoute.js
+        router.get('/postsfromfollowing',protectedresource, (req,res)=>{
+    PostModel.find({author: {$in: req.dbUser.following} })
+    .populate("comments.commentedBy" , "_id fullName")
+    .populate("author", "id_fullName")
+    .then((dbPosts)=>{
+        res.status(200).json({posts: dbPosts});
+    })
+    .catch((error) => {
+        console.log(error);
+    });
+});
+
+    -->
+
+    UL changes for post from my followings - <br>
+    <!--
+        from postsfrom following
+        import React, {useState, useEffect, useContext} from 'react'
+import './home.css';
+import {UserContext} from '../App';
+import {Link}  from 'react-router-dom';
+
+function Postsfromfollowing() {
+
+  const [posts, setPosts] = useState([]); // initalize to empty array
+  const {state, dispatch} = useContext(UserContext);
+
+
+  useEffect(() => {
+
+      fetch("/postsfromfollowing", {
+        method : "get",
+        headers : {
+          "Authorization": "Bearer " + localStorage.getItem("token")
+        }
+      })
+      .then(response => response.json())
+      .then((data) => {
+        console.log(data);
+        setPosts(data.posts);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+  },[]);// We want to led omly once when component is munting/loading thats why an emptyb array is dependicies
+
+
+  const likeUnlike = (postId, url) => {
+    fetch(url, {
+      method : "put",
+      headers : {
+        "Authorization": "Bearer " + localStorage.getItem("token")
+      },
+      body: JSON.stringify({postId: postId})
+    })
+    .then(response => response.json())
+    .then(function (updatedPost) {
+      console.log(updatedPost);
+      const newPostArr = posts.map((oldPost) => {
+        if(oldPost._id === updatedPost._id){
+          return updatedPost;
+        }
+        else{
+          return oldPost;
+        }
+      });
+      setPosts(newPostArr);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
+
+
+
+  const deletePost = (postId) => {
+
+
+    fetch(`/deletepost/${postId}`, {
+      method : "delete",
+      headers : {
+        "Authorization": "Bearer " + localStorage.getItem("token")
+      }
+    })
+    .then(response => response.json())
+    .then(function (deletedPost) {
+      console.log(deletedPost);
+      const newPostArr = posts.filter((oldPost) => {
+        return (oldPost._id !== deletedPost.result._id)
+      });
+      setPosts(newPostArr);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+
+  }
+
+
+
+
+  const submitComment = (postId, event) => {
+
+    event.preventDefault(); // to avoid to page refresh again and again
+
+    const commentText = event.target[0].value;
+
+    fetch("/comment", {
+      method : "put",
+      headers : {
+        "Authorization": "Bearer " + localStorage.getItem("token")
+      },
+      body: JSON.stringify({commentText : commentText, postId : postId})
+    })
+    .then(response => response.json())
+    .then(function (updatedPost) {
+      console.log(updatedPost);
+      const newPostArr = posts.map((oldPost) => {
+        if(oldPost._id === updatedPost._id){
+          return updatedPost;
+        }
+        else{
+          return oldPost;
+        }
+      });
+      setPosts(newPostArr);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
+
+
+
+
+  return (
+    <div className='home-container'>
+
+      {
+        posts.map( (post)=> {
+          return(
+            <div className='card home-card' key={post._id}>
+              <h5>
+                <Link to={post.author._id !== state._id ?"/profile/" + post.author._id   :"/profile"}>{post.author.fullName}</Link>
+
+
+                { post.author._id === state._id && <i onClick={() => deletePost(post._id)} style={{cursor: "pointer", color: "red", float: "right" , fontSize: "35px"}} className='material-icons'>delete_forever</i> }
+              </h5>
+              <div className='card-image'>
+                <img alt='name' src={post.image}/>
+              </div>
+              <div className='card-content'>
+              <i className="material-icons" style={{color:"red", marginRight: "8px"}}>favourite</i>
+              {
+                post.likes.includes(state._id)
+                ?<i  onClick={()=> likeUnlike(post._id, '/unlike')} className="material-icons" style={{color:"red", marginRight: "8px",  cursor: "pointer"}}>thumb_down</i>
+                //for user present
+                :<i onClick={()=> likeUnlike(post._id, '/like')} className="material-icons" style={{color:"blue", marginRight: "8px",  cursor: "pointer"}}>thumb_up</i>
+                //for not user is present
+              }
+              
+              <h6>{post.likes.length}Likes</h6>
+                <h6>{post.title}</h6>
+                <p>{post.body}</p>
+                
+                {
+                  post.comments.length > 0
+                  ?<h6 style={{fontWeight: "600"}}>All Comments</h6>
+                  : ""
+                }
+
+                {
+                  post.comments.map((comment) => {
+                    return(
+                      <h6 key={post._id}>
+                        <span style={{fontWeight: "400"}}>{comment.commentedBy.fullName}</span>
+                        <span>{comment.commentText}</span>
+                      </h6>
+                    )
+                  })
+                }
+
+                <form onSubmit={(event) => {submitComment(event, post._id)}}>
+                  <input type="text" placeholder="Enter your comment" />
+                </form>
+
+              </div>
+            </div>
+          )
+        })
+      }
+
+
+    </div>
+  )
+}
+
+export default Postsfromfollowing
+
+
+
+
+make changes in app.js in route
+make cahnges in  navbar.js
+if(state){// if the user object is present
+            return[
+                <li key="11111"><Link to="/Add-post">Add Post</Link></li>,
+                <li key="1112245"><Link to="/postsfromfollowing">Post From Followings</Link></li>,
+                <li key="11122"><Link to="/Profile">Profile</Link></li>,
+                <li key="11111211"> <button onClick={()=> logout()} className='btn waves-effect waves-light #64b5f6 blue lighten-2'>Logout</button></li>
+            ]
+        }
+    -->
+
+    fixing bug issuse in follow and unfollow - <br>
+    <!--
+        from otheruserprofiles.js
+        
+function OtherUserProfile() {
+
+  const [userProfile, setUserProfile] = useState();
+  const {state, dispatch} = useContext(UserContext);
+
+  const {userId} = useParams()
+  const {showFollow, setshowFollow} = useState(state? !state.following.includes(userId)    :true);
+
+  console.log(userId);
+
+
+  useEffect(() => {
+    -->
+
+    working on user profile picture - <br>
+    <!--
+        changes is made in every pages 
+    -->
+
+
+
+    
+
+
+
+
+    
+
+
+
+
+
+    
+
+
+    
+
+    
+
+
+
+</body>
+</html>
